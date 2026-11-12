@@ -65,3 +65,9 @@ Sem repositório publicado/configurado, o catálogo informa explicitamente que i
 Instalador WPF redesenhado em uma coluna, com tamanhos padrão e mínimo renderizados para inspeção, controles escuros, rolagem e barra de título nativa escura quando suportada. O status de falha deixa de ser sobrescrito pela atualização do estado da instalação. Os handlers nativos continuam cobertos pelo teste com ASAR temporário, sem tocar no Discord do usuário.
 
 O padrão de download foi configurado para o repositório público `trwsty/deskcord`, na pasta de pacotes da revisão correspondente. Publicar o repositório e testar o transporte HTTPS são etapas separadas do build; compilar não comprova disponibilidade da hospedagem ou compatibilidade de todos os plugins no Discord.
+
+## Correção do crash React 0.4.1
+
+Reproduzido no Discord real 1.0.9267, sem plugins opcionais, com erro React 311. A instrumentação de desempenho acrescentava `useReducer`/`useEffect` via `useSettings` ao hook de mídia do host depois da montagem dos componentes, alterando a ordem de hooks. O wrapper agora chama somente os hooks originais do Discord e consulta a preferência do modo batata sem adicionar hooks.
+
+O teste de navegador monta um componente React real antes da instrumentação e confirma preservação de estado ao aplicar o wrapper, ativar/desativar e restaurar os métodos. Um teste unitário cobre contexto, chamadas originais e restauração. No Discord real foram verificados recarga, abertura da aba Deskcord e duas alternâncias do modo batata sem erro ou tela de queda, preservando a preferência original. Os ajustes de mídia são observados no próximo render normal do componente; mudar de canal atualiza a visualização. Não há atualização de preferências da conta para forçar esse refresh.

@@ -27,7 +27,7 @@ O preview usa as abas reais com uma ponte de teste, sem conexão com o Discord. 
 
 ## Instalar e remover
 
-Abra **Deskcord-Setup-0.4.0.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
+Abra **Deskcord-Setup-0.4.1.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
 
 O carregador padrão do Vencord é reconhecido e substituído, com uma cópia em `resources\deskcord-vencord-backup.asar`. Outros modificadores são recusados. Configurações do Vencord não são importadas. Para desenvolvimento pela CLI, feche o Discord antes:
 

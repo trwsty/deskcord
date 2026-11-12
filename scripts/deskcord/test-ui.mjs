@@ -8,6 +8,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 
+import { build } from "esbuild";
 import puppeteer from "puppeteer-core";
 
 import { startPreview } from "./preview.mjs";
@@ -147,6 +148,37 @@ try {
     await page.waitForFunction(() => document.body.textContent.includes("Seu primeiro tema começa aqui"));
     assert.equal(await page.evaluate(() => window.DeskcordPreview.settings.enabledThemes.length), 0);
     assert.equal(await page.$eval("#deskcord-themes", node => node.textContent), "");
+    const regression = await browser.newPage();
+    regression.on("pageerror", error => errors.push(error.message));
+    await build({ stdin: { resolveDir: process.cwd(), loader: "tsx", sourcefile: "media-hook-regression.tsx", contents: `
+        import React from "react";
+        import { createRoot } from "react-dom/client";
+        import { wrapMediaSetting } from "./src/deskcord/potato";
+        let enabled = false;
+        const setting = { getSetting() { return true; }, useSetting() { return React.useState(true)[0]; } };
+        let restore;
+        function Host() {
+            const value = setting.useSetting();
+            const [preserved] = React.useState("preserved");
+            return <p id="host-value">{String(value) + "/" + preserved}</p>;
+        }
+        const root = createRoot(document.getElementById("root"));
+        window.exerciseMediaHook = (mode) => {
+            if (mode === "wrap") restore = wrapMediaSetting(setting, "gifAutoPlay", () => enabled);
+            else if (mode === "restore") restore();
+            else enabled = mode === "enable";
+            root.render(<Host />);
+        };
+        root.render(<Host />);
+    ` }, bundle: true, outfile: ".preview/media-hook-regression.js", platform: "browser", format: "iife" });
+    await regression.setContent('<div id="root"></div>');
+    await regression.addScriptTag({ path: ".preview/media-hook-regression.js" });
+    await regression.waitForFunction(() => document.querySelector("#host-value")?.textContent === "true/preserved");
+    for (const [mode, expected] of [["wrap", "true/preserved"], ["enable", "false/preserved"], ["disable", "true/preserved"], ["restore", "true/preserved"]]) {
+        await regression.evaluate(mode => window.exerciseMediaHook(mode), mode);
+        await regression.waitForFunction(expected => document.querySelector("#host-value")?.textContent === expected, {}, expected);
+    }
+    await regression.close();
     assert.deepEqual(errors, []);
     console.log("UI OK: catálogo, origem/categoria, autoria, busca, download seletivo, ativação/remoção e falhas; temas, modo batata, teclado, claro e 390 px.");
 } finally { await browser.close(); await preview.close(); }

@@ -22,3 +22,15 @@ export function effectiveSetting<T>(key: string, original: T, enabled: boolean):
 export function shouldSuspendThemes(potato: boolean, suspend: boolean) {
     return potato && suspend;
 }
+
+export function wrapMediaSetting<T>(setting: { getSetting(): T; useSetting(): T; }, key: string, enabled: () => boolean) {
+    const { getSetting, useSetting } = setting;
+    setting.getSetting = function () {
+        return effectiveSetting(key, getSetting.call(this), enabled()) as T;
+    };
+    // Host components may already be mounted. Keep exactly the host's original hooks.
+    setting.useSetting = function () {
+        return effectiveSetting(key, useSetting.call(this), enabled()) as T;
+    };
+    return () => Object.assign(setting, { getSetting, useSetting });
+}
