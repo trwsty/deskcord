@@ -1,0 +1,22 @@
+[
+    {
+        "name": "BadgeAPI",
+        "error": "Build failed with 1 error:\nsrc/plugins/_api/badges/index.tsx:28:37: ERROR: [plugin: deskcord-shared-runtime] Este plugin precisa de adaptação das telas de configurações do Vencord."
+    },
+    {
+        "name": "BetterSettings",
+        "error": "Build failed with 1 error:\nsrc/plugins/vencordToolbox/menu.tsx:10:77: ERROR: [plugin: deskcord-shared-runtime] Este plugin precisa de adaptação das telas de configurações do Vencord."
+    },
+    {
+        "name": "ShowHiddenChannels",
+        "error": "O plugin importa código de outro plugin sem uma fronteira de dependência suportada."
+    },
+    {
+        "name": "SupportHelper",
+        "error": "Build failed with 1 error:\nsrc/plugins/_core/supportHelper.tsx:28:49: ERROR: [plugin: deskcord-shared-runtime] Este plugin precisa de adaptação das telas de configurações do Vencord."
+    },
+    {
+        "name": "VencordToolbox",
+        "error": "Build failed with 1 error:\nsrc/plugins/vencordToolbox/menu.tsx:10:77: ERROR: [plugin: deskcord-shared-runtime] Este plugin precisa de adaptação das telas de configurações do Vencord."
+    }
+]

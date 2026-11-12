@@ -1,0 +1,2 @@
+plugin-packages/** -text
+*.md text eol=lf

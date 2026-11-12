@@ -1,0 +1,170 @@
+html {
+    background: #000;
+}
+body {
+    margin: 0;
+    font-family: "gg sans", "Segoe UI", sans-serif;
+}
+.preview-shell {
+    color-scheme: dark;
+    --text-normal: #dcdce2;
+    --text-muted: #a8a8b2;
+    --background-primary: #000;
+    --background-secondary: #0b0b0e;
+    --background-tertiary: #020203;
+    --background-modifier-accent: #2a2a30;
+    --background-modifier-hover: #1b1b20;
+    --brand-500: #5865f2;
+    --focus-primary: #b5c4ff;
+    --text-danger: #ffaaa9;
+    min-height: 100vh;
+    background: var(--background-primary);
+    color: var(--text-normal);
+}
+.preview-light {
+    color-scheme: light;
+    --text-normal: #25262d;
+    --text-muted: #555863;
+    --background-primary: #fff;
+    --background-secondary: #f2f3f5;
+    --background-tertiary: #fafafb;
+    --background-modifier-accent: #d9dbe1;
+    --background-modifier-hover: #e9ebef;
+    --focus-primary: #4752c4;
+    --text-danger: #a32b29;
+}
+.preview-banner {
+    padding: 10px 24px;
+    background: var(--background-tertiary);
+    color: var(--text-muted);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.preview-banner button {
+    color: inherit;
+    background: none;
+    border: 0;
+    font: inherit;
+    padding: 4px;
+    cursor: pointer;
+}
+.preview-layout {
+    max-width: 1140px;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    margin: auto;
+    min-height: calc(100vh - 48px);
+}
+.preview-sidebar {
+    background: var(--background-primary);
+    border-right: 1px solid var(--background-modifier-accent);
+    padding: 36px 12px 24px;
+}
+.preview-sidebar h1,
+.preview-discord-label {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    margin: 0 10px 12px;
+    color: var(--text-muted);
+}
+.preview-host-label {
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+.preview-separator {
+    height: 1px;
+    background: var(--background-modifier-accent);
+    margin: 20px 10px;
+}
+.preview-sidebar nav {
+    display: grid;
+    gap: 2px;
+}
+.preview-sidebar nav button {
+    font: inherit;
+    font-size: 13px;
+    color: var(--text-normal);
+    background: none;
+    border: 0;
+    text-align: left;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.preview-sidebar nav button[aria-current],
+.preview-sidebar nav button:hover {
+    background: var(--background-modifier-hover);
+}
+.preview-shell button:focus-visible {
+    outline: 2px solid var(--focus-primary);
+    outline-offset: 2px;
+}
+.preview-sidebar-footer {
+    border-top: 1px solid var(--background-modifier-accent);
+    margin: 24px 10px 0;
+    padding-top: 16px;
+    color: var(--text-muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+.preview-main {
+    min-width: 0;
+    padding: 0 0 24px;
+}
+@media (width <= 700px) {
+    .preview-layout {
+        grid-template-columns: 1fr;
+    }
+    .preview-sidebar {
+        padding: 18px 20px;
+    }
+    .preview-sidebar h1 {
+        margin-left: 0;
+    }
+    .preview-host-label,
+    .preview-discord-label,
+    .preview-separator,
+    .preview-sidebar-footer {
+        display: none;
+    }
+    .preview-sidebar nav {
+        display: flex;
+        gap: 8px;
+    }
+    .preview-main {
+        padding: 24px 20px;
+    }
+    .preview-banner {
+        padding: 10px 20px;
+        align-items: flex-start;
+    }
+}
+
+.preview-content-title {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--background-modifier-accent);
+    font-size: 13px;
+    font-weight: 600;
+}
+.preview-content {
+    max-width: 680px;
+    padding: 54px 28px 24px;
+    margin: auto;
+    box-sizing: border-box;
+}
+@media (width <= 700px) {
+    .preview-main {
+        padding: 0;
+    }
+    .preview-content {
+        padding: 24px 18px;
+    }
+    .preview-content-title {
+        padding: 10px 18px;
+    }
+}
