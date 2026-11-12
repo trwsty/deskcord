@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,6 +46,8 @@ static class InstallerSmoke {
                 await (Task)Call("Run", "install");
                 Assert(log.Text.Contains("Deskcord instalado"), "Install result: " + log.Text);
                 Assert(File.Exists(Path.Combine(resources, "_app.asar")), "Original backup missing");
+                File.Copy(Path.Combine(resources, "app.asar"), Path.Combine(Path.GetDirectoryName(resources), "fixture-loader.asar"));
+                Assert(!Directory.GetFiles(cache, "node.exe", SearchOption.AllDirectories).Any(), "Node runtime must not be embedded");
                 await (Task)Call("Run", "reinstall");
                 Assert(log.Text.Contains("Deskcord instalado"), "Reinstall result: " + log.Text);
                 File.Move(Path.Combine(resources, "_app.asar"), Path.Combine(resources, "fixture-original.asar"));
@@ -57,7 +60,36 @@ static class InstallerSmoke {
                 Assert(!File.Exists(Path.Combine(resources, "_app.asar")), "Backup not restored");
                 await (Task)Call("Refresh");
                 Assert(status.Text == "Discord sem Deskcord", "Unexpected final status: " + status.Text);
+                var backend = assembly.GetType("NativeInstaller", true).GetMethod("Execute", BindingFlags.Static | BindingFlags.Public);
+                var cases = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(resources))), "cases");
+                Func<string,string,string> execute = (name, action) => (string)backend.Invoke(null, new object[] { Path.Combine(cases,name), action, Path.Combine(cache,"payload") });
+                foreach (var name in new [] { "unknown", "malformed", "linked", "interrupted" }) {
+                    var target = Path.Combine(cases,name,"app.asar"); var before = File.ReadAllBytes(target);
+                    bool rejected = false;
+                    try { execute(name,"install"); } catch (TargetInvocationException) { rejected = true; }
+                    Assert(rejected, "Unsafe case accepted: " + name);
+                    Assert(File.ReadAllBytes(target).SequenceEqual(before), "Unsafe case modified loader: " + name);
+                }
+                var locked = Path.Combine(cases,"locked","app.asar"); var lockedBefore = File.ReadAllBytes(locked);
+                bool lockedRejected = false;
+                using (var held = new FileStream(locked,FileMode.Open,FileAccess.Read,FileShare.Read)) {
+                    try { execute("locked","install"); } catch (TargetInvocationException) { lockedRejected = true; }
+                }
+                Assert(lockedRejected && File.ReadAllBytes(locked).SequenceEqual(lockedBefore), "Failed atomic replacement changed original");
+                Assert(!File.Exists(Path.Combine(cases,"locked","deskcord-staged.asar")), "Failed replacement retained staging archive");
+                execute("locked","install");
+                var installedBefore = File.ReadAllBytes(locked);
+                bool uninstallRejected = false;
+                using (var held = new FileStream(locked,FileMode.Open,FileAccess.Read,FileShare.Read)) {
+                    try { execute("locked","uninstall"); } catch (TargetInvocationException) { uninstallRejected = true; }
+                }
+                Assert(uninstallRejected && File.ReadAllBytes(locked).SequenceEqual(installedBefore), "Failed uninstall changed loader");
+                execute("locked","uninstall");
+                Assert(File.ReadAllBytes(locked).SequenceEqual(lockedBefore), "Retry did not restore original");
+                execute("migrate","install"); execute("migrate","uninstall");
+                Assert(File.ReadAllBytes(Path.Combine(cases,"migrate","app.asar")).SequenceEqual(File.ReadAllBytes(Path.Combine(cases,"locked","app.asar"))), "Vencord migration did not restore original");
                 Console.WriteLine("Native WPF handlers: install, reinstall, failure message and uninstall OK");
+                Console.WriteLine("Native ASAR: unknown mods, malformed headers, links, interrupted installs, locked-file failure and Vencord migration OK");
                 result = 0;
             } catch (Exception ex) { Console.Error.WriteLine(ex); }
             finally {

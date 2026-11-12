@@ -6,11 +6,11 @@
 
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdir, mkdtemp, readFile, realpath, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 
-import { createPackage } from "@electron/asar";
+import { createPackage, extractFile } from "@electron/asar";
 
 const { version } = JSON.parse(await readFile("package.json", "utf8"));
 const framework = join(process.env.WINDIR, "Microsoft.NET/Framework64/v4.0.30319");
@@ -32,8 +32,30 @@ try {
     await writeFile(join(original, "index.js"), "// fixture");
     await createPackage(original, join(resources, "app.asar"));
     const before = await readFile(join(resources, "app.asar"));
+    for (const name of ["unknown", "malformed", "linked", "interrupted", "locked", "migrate"]) {
+        const directory = join(fixture, "cases", name);
+        await mkdir(directory, { recursive: true });
+        await copyFile(join(resources, "app.asar"), join(directory, "app.asar"));
+    }
+    await writeFile(join(fixture, "cases/unknown/_app.asar"), before);
+    await writeFile(join(fixture, "cases/malformed/app.asar"), Buffer.from([4, 0, 0, 0, 255, 255, 255, 255]));
+    await writeFile(join(fixture, "cases/interrupted/deskcord-staged.asar"), "preserve interrupted operation");
+    const outside = join(fixture, "outside"); await mkdir(outside);
+    await writeFile(join(outside, "sentinel.txt"), "preserve personal file");
+    await symlink(outside, join(fixture, "cases/linked/Deskcord"), "junction");
+    const vencord = join(fixture, "vencord"); await mkdir(vencord);
+    await writeFile(join(vencord, "package.json"), '{"name":"discord","main":"index.js"}');
+    await writeFile(join(vencord, "index.js"), 'require("C:\\\\Users\\\\Test\\\\AppData\\\\Roaming\\\\Vencord\\\\dist\\\\patcher.js")');
+    await writeFile(join(fixture, "cases/migrate/_app.asar"), before);
+    await rm(join(fixture, "cases/migrate/app.asar"));
+    await createPackage(vencord, join(fixture, "cases/migrate/app.asar"));
     execFileSync(executable, [resolve("release", `Deskcord-Setup-${version}.exe`), resources], { stdio: "inherit", windowsHide: true, timeout: 120000 });
     assert.deepEqual(await readFile(join(resources, "app.asar")), before);
+    const injector = join(app, "fixture-loader.asar");
+    assert.equal(JSON.parse(extractFile(injector, "deskcord-install.json").toString()).product, "Deskcord");
+    assert.match(extractFile(injector, "index.js").toString(), /Deskcord\/[a-f0-9]{64}/);
+    assert.equal(JSON.parse(extractFile(injector, "package.json").toString()).main, "index.js");
+    assert.equal(await readFile(join(outside, "sentinel.txt"), "utf8"), "preserve personal file");
 } finally {
     if (dirname(await realpath(fixture)) === await realpath(tmpdir())) await rm(fixture, { recursive: true, force: true });
 }

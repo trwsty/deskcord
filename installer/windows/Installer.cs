@@ -172,27 +172,7 @@ static class Installer {
         return dir;
     }
     static async Task<string> Worker(string resources, string action) {
-        return await Task.Run(() => {
-            var info = new ProcessStartInfo(Path.Combine(cache, "node.exe"), "\"" + Path.Combine(cache, "worker.cjs") + "\" --request") {
-                UseShellExecute = false, CreateNoWindow = true, RedirectStandardInput = true,
-                RedirectStandardOutput = true, RedirectStandardError = true, StandardOutputEncoding = Encoding.UTF8,
-                StandardErrorEncoding = Encoding.UTF8, WorkingDirectory = cache
-            };
-            using (var process = Process.Start(info)) {
-                var stdout = process.StandardOutput.ReadToEndAsync();
-                var stderr = process.StandardError.ReadToEndAsync();
-                process.StandardInput.WriteLine(json.Serialize(new { resources = resources, action = action }));
-                process.StandardInput.Close();
-                if (!process.WaitForExit(90000)) { process.Kill(); throw new IOException("O instalador excedeu o tempo limite. Verifique os arquivos antes de tentar novamente."); }
-                var output = stdout.GetAwaiter().GetResult().Trim();
-                stderr.GetAwaiter().GetResult();
-                if (process.ExitCode != 0 && output.Length == 0)
-                    throw new IOException("O processo do instalador falhou (código " + process.ExitCode + "). Baixe uma nova cópia do EXE.");
-                var result = json.Deserialize<Dictionary<string,object>>(output);
-                if (result == null || !(bool)result["ok"]) throw new IOException(result == null ? "Falha no instalador." : (string)result["message"]);
-                return (string)result["message"];
-            }
-        });
+        return await Task.Run(() => NativeInstaller.Execute(resources, action, Path.Combine(cache, "payload")));
     }
     static string DiscordExe(string resources) {
         var dir = Path.GetDirectoryName(resources);

@@ -11,11 +11,12 @@ import { Logger } from "@utils/Logger";
 import { potatoOverrides, wrapMediaSetting } from "./potato";
 
 const logger = new Logger("Deskcord");
+const controls = new Map<string, NonNullable<ReturnType<typeof getUserSetting>>>();
 const hooks = new Map<string, () => void>();
 const listeners = new Set<() => void>();
 
 export function getCompatibilityCount() {
-    return hooks.size;
+    return controls.size;
 }
 
 export function subscribeCompatibility(listener: () => void) {
@@ -24,16 +25,27 @@ export function subscribeCompatibility(listener: () => void) {
 }
 
 export function syncPotatoClass() {
-    document.documentElement.classList.toggle("dc-potato", Settings.deskcord.potato);
+    const enabled = Settings.deskcord.potato;
+    document.documentElement.classList.toggle("dc-potato", enabled);
+    for (const [key, setting] of controls) {
+        try {
+            if (enabled && !hooks.has(key)) hooks.set(key, wrapMediaSetting(setting, key, () => Settings.deskcord.potato));
+            else if (!enabled && hooks.has(key)) { hooks.get(key)!(); hooks.delete(key); }
+        } catch {
+            controls.delete(key); hooks.delete(key);
+            logger.warn(`Controle local indisponível: ${key}`);
+            listeners.forEach(listener => listener());
+        }
+    }
 }
 
 export function installPerformanceHooks() {
     for (const key of Object.keys(potatoOverrides)) {
-        if (hooks.has(key)) continue;
+        if (controls.has(key)) continue;
         try {
             const setting = getUserSetting("textAndImages", key);
             if (!setting) continue;
-            hooks.set(key, wrapMediaSetting(setting, key, () => Settings.deskcord.potato));
+            controls.set(key, setting);
         } catch {
             logger.warn(`Controle local indisponível: ${key}`);
         }

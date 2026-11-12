@@ -5,6 +5,19 @@
  */
 
 import { writeFile } from "node:fs/promises";
+import { deflateSync } from "node:zlib";
+
+function chunk(type, data) {
+    const body = Buffer.concat([Buffer.from(type), data]);
+    let crc = 0xffffffff;
+    for (const byte of body) {
+        crc ^= byte;
+        for (let bit = 0; bit < 8; bit++) crc = (crc >>> 1) ^ ((crc & 1) ? 0xedb88320 : 0);
+    }
+    const prefix = Buffer.alloc(4), suffix = Buffer.alloc(4);
+    prefix.writeUInt32BE(data.length); suffix.writeUInt32BE((crc ^ 0xffffffff) >>> 0);
+    return Buffer.concat([prefix, body, suffix]);
+}
 
 // ICO bitmaps, supersampled from the same simple D mark used by the WPF UI.
 export async function buildIcon(path) {
@@ -31,7 +44,17 @@ export async function buildIcon(path) {
             const offset = 40 + ((size - y - 1) * size + x) * 4;
             for (let c = 0; c < 4; c++) bytes[offset + c] = Math.round(color[c]);
         }
-        return bytes;
+        if (size !== 256) return bytes;
+        const rows = Buffer.alloc(size * (1 + size * 4));
+        for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+            const source = 40 + ((size - y - 1) * size + x) * 4;
+            const target = y * (1 + size * 4) + 1 + x * 4;
+            rows[target] = bytes[source + 2]; rows[target + 1] = bytes[source + 1];
+            rows[target + 2] = bytes[source]; rows[target + 3] = bytes[source + 3];
+        }
+        const ihdr = Buffer.alloc(13);
+        ihdr.writeUInt32BE(size, 0); ihdr.writeUInt32BE(size, 4); ihdr[8] = 8; ihdr[9] = 6;
+        return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk("IHDR", ihdr), chunk("IDAT", deflateSync(rows, { level: 9 })), chunk("IEND", Buffer.alloc(0))]);
     });
     const header = Buffer.alloc(6 + sizes.length * 16);
     header.writeUInt16LE(1, 2); header.writeUInt16LE(sizes.length, 4);

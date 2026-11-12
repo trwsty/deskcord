@@ -34,7 +34,7 @@ Plugins: após publicar/configurar o repositório, testar cada pacote no Discord
 - Janelas que usam o sandbox do Electron são deixadas sem injeção; o Deskcord não desliga esse isolamento para carregar o mod.
 - O modo batata não elimina o custo base do Electron nem força coleta de lixo. Sem ganho percentual prometido.
 - CSS normal e imports HTTPS dos hosts documentados são aceitos. Imports `layer`/`supports` e arquivos locais auxiliares precisam ser reunidos em um CSS único. Assets externos continuam sujeitos à CSP original do Discord. Não há compatibilidade universal de temas.
-- Preview de navegador não substitui teste dentro do Discord. O EXE gráfico WPF embute Node oficial e não exige instalação desse runtime; ainda não tem assinatura digital.
+- Preview de navegador não substitui teste dentro do Discord. O EXE gráfico WPF usa o .NET Framework do Windows, sem Node embutido desde 0.5.0; ainda não tem assinatura digital.
 - O build mantém módulos-fonte do Vencord para rastreabilidade; o perfil exclui todos os plugins opcionais do bundle.
 
 ## Interface compacta 0.2.1
@@ -71,3 +71,13 @@ O padrão de download foi configurado para o repositório público `trwsty/deskc
 Reproduzido no Discord real 1.0.9267, sem plugins opcionais, com erro React 311. A instrumentação de desempenho acrescentava `useReducer`/`useEffect` via `useSettings` ao hook de mídia do host depois da montagem dos componentes, alterando a ordem de hooks. O wrapper agora chama somente os hooks originais do Discord e consulta a preferência do modo batata sem adicionar hooks.
 
 O teste de navegador monta um componente React real antes da instrumentação e confirma preservação de estado ao aplicar o wrapper, ativar/desativar e restaurar os métodos. Um teste unitário cobre contexto, chamadas originais e restauração. No Discord real foram verificados recarga, abertura da aba Deskcord e duas alternâncias do modo batata sem erro ou tela de queda, preservando a preferência original. Os ajustes de mídia são observados no próximo render normal do componente; mudar de canal atualiza a visualização. Não há atualização de preferências da conta para forçar esse refresh.
+
+## Compactação e desempenho 0.5.0
+
+O instalador foi convertido para um backend C# nativo, sem Node, processo auxiliar, download de runtime ou bibliotecas adicionais. O leitor ASAR aceita somente entradas de raiz com limites explícitos e o escritor gera apenas os três arquivos do carregador. Substituição e restauração do carregador usam `File.Replace` no mesmo volume. Links/junctions, formatos desconhecidos e arquivos interrompidos são recusados. O instalador mantém o runtime atual e a versão imediatamente anterior; outros slots reconhecidos podem ser removidos após uma instalação bem-sucedida.
+
+O teste WPF executa instalação, reinstalação, remoção e erro de backup usando o backend C# real. Também cobre migração do Vencord, cabeçalho malformado, mod desconhecido, junction para fora da pasta, staging existente e bloqueios de arquivo durante instalação/desinstalação. Confere a preservação dos bytes originais e lê o carregador gerado com a biblioteca oficial `@electron/asar`, independente do leitor C#.
+
+Os wrappers de mídia só ficam instalados enquanto o modo batata está ativo. Ao desligar, os métodos originais voltam; a descoberta dos seis controles continua disponível no diagnóstico. A restauração preserva alterações posteriores de outras integrações e falhas parciais de instalação do wrapper são revertidas. Testes de React verificam que a instrumentação tardia e a remoção não mudam a ordem dos hooks.
+
+Redução do tamanho do instalador não equivale a redução percentual de RAM do Discord. O custo base do Electron e o conteúdo dos canais continuam existindo. Ainda é necessário um benchmark controlado de CPU/memória e testes individuais dos plugins para quantificar ganhos e compatibilidade.

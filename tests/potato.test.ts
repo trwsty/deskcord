@@ -45,3 +45,20 @@ test("media wrappers retain host calls, context and original methods when restor
     assert.equal(setting.getSetting, originalGet);
     assert.equal(setting.useSetting, originalUse);
 });
+
+test("removing a media wrapper preserves a later change made by another integration", () => {
+    const setting = { getSetting: () => true, useSetting: () => true };
+    const restore = wrapMediaSetting(setting, "gifAutoPlay", () => false);
+    const newerHook = () => false;
+    setting.useSetting = newerHook;
+    restore();
+    assert.equal(setting.useSetting, newerHook);
+});
+
+test("an incompatible host setting cannot leave a partially installed wrapper", () => {
+    const setting = { getSetting: () => true, useSetting: () => true };
+    const original = setting.getSetting;
+    Object.defineProperty(setting, "useSetting", { writable: false });
+    assert.throws(() => wrapMediaSetting(setting, "gifAutoPlay", () => true));
+    assert.equal(setting.getSetting, original);
+});

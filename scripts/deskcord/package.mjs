@@ -9,7 +9,6 @@ import { createWriteStream } from "node:fs";
 import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 
-import { build } from "esbuild";
 import { ZipFile } from "yazl";
 
 import { buildInstaller } from "./build-installer.mjs";
@@ -18,20 +17,12 @@ const { version } = JSON.parse(await readFile("package.json", "utf8"));
 const release = resolve("release", `Deskcord-${version}`);
 const sourceRelease = resolve("release", `Deskcord-source-${version}`);
 const pluginRelease = resolve("release", `Deskcord-plugin-repository-${version}`);
-await mkdir(join(release, "dist"), { recursive: true });
-for (const file of ["patcher.js", "preload.js", "renderer.js", "renderer.css", "patcher.js.LEGAL.txt", "renderer.js.LEGAL.txt"])
-    await cp(join("dist", file), join(release, "dist", file));
-const installerBuild = await build({ entryPoints: ["scripts/deskcord/install.mjs"], outfile: join(release, "dist", "installer.cjs"), bundle: true, metafile: true,
-    platform: "node", format: "cjs", target: "node22",
-    define: { "import.meta.url": "__deskcord_import_meta_url" },
-    banner: { js: 'const __deskcord_import_meta_url = require("node:url").pathToFileURL(__filename).href;' } });
-const nativeBuild = await buildInstaller(resolve("release", `Deskcord-Setup-${version}.exe`));
+await mkdir(release, { recursive: true });
+await buildInstaller(resolve("release", `Deskcord-Setup-${version}.exe`));
 execFileSync(process.execPath, ["scripts/deskcord/test-installer.mjs"], { stdio: "inherit", windowsHide: true });
 await cp(resolve("release", `Deskcord-Setup-${version}.exe`), join(release, "Deskcord-Setup.exe"));
 for (const file of ["README.md", "LICENSE", "NOTICE.md"]) await cp(file, join(release, file));
-const librarySources = Object.keys(installerBuild.metafile.inputs).map(path => resolve(path));
-librarySources.push(...Object.keys(nativeBuild.inputs).map(path => resolve(path)));
-librarySources.push(...JSON.parse(await readFile(".preview/plugin-license-inputs.json", "utf8")));
+const librarySources = JSON.parse(await readFile(".preview/plugin-license-inputs.json", "utf8"));
 for (const file of ["renderer.js.map", "patcher.js.map"]) {
     const map = JSON.parse(await readFile(join("dist", file), "utf8"));
     librarySources.push(...map.sources.map(source => resolve("dist", source)));
@@ -46,7 +37,7 @@ for (const source of librarySources.filter(path => path.includes("node_modules")
 }
 const licenseDirectory = join(release, "licenses");
 await mkdir(licenseDirectory, { recursive: true });
-await cp("release/Node-LICENSE.txt", join(licenseDirectory, "Node-LICENSE.txt"));
+for (const file of ["patcher.js.LEGAL.txt", "renderer.js.LEGAL.txt"]) await cp(join("dist", file), join(licenseDirectory, file));
 for (const directory of libraryRoots) {
     const pkg = JSON.parse(await readFile(join(directory, "package.json"), "utf8"));
     const names = (await readdir(directory)).filter(file => /^(?:licen[cs]e|notice)(?:\..*)?$/i.test(file));

@@ -27,7 +27,7 @@ O preview usa as abas reais com uma ponte de teste, sem conexão com o Discord. 
 
 ## Instalar e remover
 
-Abra **Deskcord-Setup-0.4.1.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
+Abra **Deskcord-Setup-0.5.0.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
 
 O carregador padrão do Vencord é reconhecido e substituído, com uma cópia em `resources\deskcord-vencord-backup.asar`. Outros modificadores são recusados. Configurações do Vencord não são importadas. Para desenvolvimento pela CLI, feche o Discord antes:
 
@@ -43,7 +43,7 @@ Abra o Discord e procure **Deskcord**, **Plugins** e **Themes** nas configuraç�
 
 O instalador copia o build para `resources\Deskcord\<hash>` dentro da instalação do Discord, permitindo mover o instalador/projeto depois. Abrir o Discord pelo atalho normal carrega o Deskcord dentro do mesmo aplicativo. `_app.asar` contém o original: não o apague manualmente. Para remover e restaurar, use o EXE ou `pnpm uninject`. Temas e preferências ficam em `%APPDATA%\Deskcord` e são preservados. Se uma atualização retirar o mod, reinstale; a cópia automática entre versões foi testada com instalações temporárias e ainda precisa de uma atualização real do Discord.
 
-Após gerar o catálogo e o build, `pnpm package:deskcord` gera em `release` o EXE autossuficiente e arquivos separados para cliente, pacotes de plugins e código-fonte correspondente. O EXE usa WPF/.NET Framework do Windows e embute um runtime oficial do Node, conferido por SHA-256; não instala esse runtime no sistema. `pnpm build:installer` gera somente o EXE, usando o compilador .NET Framework do Windows. O instalador ainda não tem assinatura digital. Distribua o código-fonte correspondente e as licenças junto do cliente.
+Após gerar o catálogo e o build, `pnpm package:deskcord` gera em `release` o EXE autossuficiente e arquivos separados para cliente, pacotes de plugins e código-fonte correspondente. A partir de 0.5.0, o EXE usa apenas WPF/.NET Framework do Windows: não embute Node e não baixa um runtime durante a instalação. Recursos compactados são conferidos por SHA-256. O ZIP do cliente contém o EXE e a documentação, sem uma segunda cópia dos arquivos do núcleo ou uma CLI redundante. `pnpm build:installer` gera somente o EXE, usando o compilador .NET Framework do Windows. O instalador ainda não tem assinatura digital. Distribua o código-fonte correspondente e as licenças junto do cliente.
 
 ## Downloads de plugins
 
