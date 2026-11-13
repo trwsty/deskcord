@@ -41,6 +41,7 @@ export interface Settings {
     deskcord: {
         potato: boolean;
         disableThemesInPotato: boolean;
+        classicCompact: boolean;
     };
     autoUpdate: boolean;
     autoUpdateNotification: boolean,
@@ -98,7 +99,7 @@ export interface Settings {
 }
 
 const DefaultSettings: Settings = {
-    deskcord: { potato: false, disableThemesInPotato: true },
+    deskcord: { potato: false, disableThemesInPotato: true, classicCompact: false },
     autoUpdate: false,
     autoUpdateNotification: true,
     useQuickCss: true,

@@ -14,6 +14,7 @@ const logger = new Logger("Deskcord");
 const controls = new Map<string, NonNullable<ReturnType<typeof getUserSetting>>>();
 const hooks = new Map<string, () => void>();
 const listeners = new Set<() => void>();
+let ready = false;
 
 export function getCompatibilityCount() {
     return controls.size;
@@ -27,6 +28,7 @@ export function subscribeCompatibility(listener: () => void) {
 export function syncPotatoClass() {
     const enabled = Settings.deskcord.potato;
     document.documentElement.classList.toggle("dc-potato", enabled);
+    if (enabled && ready) discoverControls();
     for (const [key, setting] of controls) {
         try {
             if (enabled && !hooks.has(key)) hooks.set(key, wrapMediaSetting(setting, key, () => Settings.deskcord.potato));
@@ -39,7 +41,23 @@ export function syncPotatoClass() {
     }
 }
 
+export function syncAppearanceClass() {
+    document.documentElement.classList.toggle("dc-classic", Settings.deskcord.classicCompact);
+}
+
 export function installPerformanceHooks() {
+    ready = true;
+    discoverControls();
+    syncPotatoClass();
+}
+
+export function preparePerformanceHooks() {
+    ready = true;
+    syncPotatoClass();
+}
+
+function discoverControls() {
+    const previousCount = controls.size;
     for (const key of Object.keys(potatoOverrides)) {
         if (controls.has(key)) continue;
         try {
@@ -50,6 +68,5 @@ export function installPerformanceHooks() {
             logger.warn(`Controle local indisponível: ${key}`);
         }
     }
-    syncPotatoClass();
-    listeners.forEach(listener => listener());
+    if (controls.size !== previousCount) listeners.forEach(listener => listener());
 }

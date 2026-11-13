@@ -89,3 +89,11 @@ Desativação remove os pacotes JSON, auxiliares nativos e dependências que nã
 O catálogo classifica candidatos conservadoramente pela definição `definePlugin`, patches, módulo nativo, declaração de reinício e métodos síncronos de iniciar/parar. O runtime confirma novamente as características do objeto real e a disponibilidade das dependências. Plugins incompatíveis não recebem patches depois que o Webpack já carregou. Falhas e módulos nativos continuam gerando indicação de reinício. A recarga do renderer prepara a seleção atual e não reutiliza uma lista antiga de plugins removidos; novos módulos nativos aguardam reinício do processo principal.
 
 No Discord real, NoMiddleClickPaste foi baixado, iniciado, parado, removido e reativado sem reiniciar. A seleção de teste foi removida ao final e o arquivo deixou de existir no perfil. O teste de navegador cobre mudança imediata sem aviso e o caso com patches mantendo aviso de reinício. Essas evidências não garantem que todos os plugins e suas integrações externas funcionem em toda revisão do Discord.
+
+## Desempenho e visual 0.7.0
+
+O modo batata desligado não procura controles de mídia na inicialização. A descoberta ocorre ao ativá-lo ou no diagnóstico; controles encontrados são reutilizados e os métodos originais voltam ao desligar. Testes de regressão cobrem inicialização com preferência salva, descoberta adiada e independência do visual clássico.
+
+A busca de plugins normaliza o catálogo uma vez por abertura da aba, em vez de repetir o trabalho para cada item a cada render. Mudanças de modo batata que não alteram a suspensão de temas não geram releituras dos arquivos CSS; o teste de navegador confere o contador de leituras. Reload manual continua relendo os arquivos editados.
+
+Clássico compacto aplica CSS local sem baixar tema nem alterar preferências sincronizadas. Testes verificam teclado, persistência, restauração, espaçamento e cores em estrutura de teste e preservação do modo claro. Não equivalem a teste visual de todos os canais e modais no cliente real; seletores podem exigir manutenção após atualizações do Discord. Não há downgrade do executável, benchmark novo de RAM ou garantia de ausência de bugs.

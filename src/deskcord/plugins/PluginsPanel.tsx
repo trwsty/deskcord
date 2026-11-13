@@ -5,7 +5,7 @@
  */
 
 import { relaunch } from "@utils/native";
-import { React, useEffect, useState } from "@webpack/common";
+import { React, useEffect, useMemo, useState } from "@webpack/common";
 
 import { Icon } from "../Icon";
 import { Switch } from "../Switch";
@@ -20,6 +20,7 @@ const categories = [...new Set(plugins.flatMap(plugin => plugin.categories))].so
 const normalize = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
 
 export function PluginsPanel() {
+    const searchIndex = useMemo(() => new Map(plugins.map(plugin => [plugin.id, normalize(`${plugin.name} ${plugin.description} ${plugin.authors.map(author => author.name).join(" ")}`)])), []);
     const [state, setState] = useState<PluginState | null>(null);
     const [origin, setOrigin] = useState<PluginOrigin | "all">("all");
     const [category, setCategory] = useState("");
@@ -57,11 +58,12 @@ export function PluginsPanel() {
         }
         finally { setBusy(""); }
     }
+    const search = normalize(query);
     const visible = plugins.filter(plugin => (origin === "all" || plugin.origin === origin)
         && (!category || plugin.categories.includes(category))
         && (filter === "all" || (filter === "installed" ? state?.installed.includes(plugin.id)
             : filter === "enabled" ? state?.enabled.includes(plugin.id) : !plugin.available))
-        && normalize(`${plugin.name} ${plugin.description} ${plugin.authors.map(author => author.name).join(" ")}`).includes(normalize(query)));
+        && searchIndex.get(plugin.id)!.includes(search));
     const pending = state && needsRestart(state);
 
     return <section className="dc-page dc-plugins" aria-label="Catálogo de plugins">

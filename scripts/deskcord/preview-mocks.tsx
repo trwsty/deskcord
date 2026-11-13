@@ -9,23 +9,30 @@ import * as React from "react";
 import pluginCatalog from "../../src/deskcord/plugins/catalog.json";
 import { dependencyOrder, PluginCatalog, PluginState } from "../../src/deskcord/plugins/model";
 export { React };
-export { useEffect, useRef, useState } from "react";
+export { useEffect, useMemo, useRef, useState } from "react";
 
 let version = 0;
 const listeners = new Set<() => void>();
-const data = { deskcord: { potato: false, disableThemesInPotato: true }, enabledThemes: [] as string[] };
+const pathListeners = new Map<string, Set<() => void>>();
+const data = { deskcord: { potato: false, disableThemesInPotato: true, classicCompact: false }, enabledThemes: [] as string[] };
 const saved = localStorage.getItem("deskcord-preview");
 try { if (saved) Object.assign(data, JSON.parse(saved)); } catch { /* Invalid preview storage is ignored. */ }
-function notify() {
-    version++;
+function syncAppearance() {
     document.documentElement.classList.toggle("dc-potato", data.deskcord.potato);
+    document.documentElement.classList.toggle("dc-classic", data.deskcord.classicCompact);
+}
+syncAppearance();
+function notify(path?: string) {
+    version++;
+    syncAppearance();
     localStorage.setItem("deskcord-preview", JSON.stringify(data));
     listeners.forEach(listener => listener());
+    if (path) pathListeners.get(path)?.forEach(listener => listener());
 }
-const nested = new Proxy(data.deskcord, { set(target, key, value) { Reflect.set(target, key, value); notify(); return true; } });
+const nested = new Proxy(data.deskcord, { set(target, key, value) { Reflect.set(target, key, value); notify(`deskcord.${String(key)}`); return true; } });
 export const Settings = new Proxy(data, {
     get(target, key) { return key === "deskcord" ? nested : Reflect.get(target, key); },
-    set(target, key, value) { Reflect.set(target, key, value); notify(); return true; }
+    set(target, key, value) { Reflect.set(target, key, value); notify(String(key)); return true; }
 });
 export function useSettings() {
     React.useSyncExternalStore(listener => { listeners.add(listener); return () => { listeners.delete(listener); }; }, () => version);
@@ -33,7 +40,10 @@ export function useSettings() {
 }
 
 export const SettingsStore = {
-    addChangeListener: (_path: string, listener: () => void) => { listeners.add(listener); }
+    addChangeListener: (path: string, listener: () => void) => {
+        if (!pathListeners.has(path)) pathListeners.set(path, new Set());
+        pathListeners.get(path)!.add(listener);
+    }
 };
 export const userStyleRootNode = document.head;
 const themes: { fileName: string; name: string; author: string; description: string; version?: string; css: string; }[] = [];

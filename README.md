@@ -4,7 +4,7 @@ Mod do Discord para Windows com controles reversíveis de desempenho, temas CSS 
 
 ![Prévia renderizada do instalador Deskcord](docs/images/installer.png)
 
-Este repositório reúne o código-fonte do cliente **0.6.0**, a documentação, as licenças e **169 pacotes compilados**, incluindo dependências internas. O catálogo contém **155 plugins públicos com pacotes experimentais**, além dos identificados como indisponíveis. A compilação não garante compatibilidade individual com o Discord atual.
+Este repositório reúne o código-fonte do cliente **0.7.0**, a documentação, as licenças e **169 pacotes compilados**, incluindo dependências internas. O catálogo contém **155 plugins públicos com pacotes experimentais**, além dos identificados como indisponíveis. A compilação não garante compatibilidade individual com o Discord atual.
 
 ## Publicar e conectar
 

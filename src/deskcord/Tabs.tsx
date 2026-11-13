@@ -5,6 +5,7 @@
  */
 
 import "./styles.css";
+import "./classic.css";
 
 import { Settings, useSettings } from "@api/Settings";
 import { getThemeErrors, refreshThemes } from "@api/Themes";
@@ -37,14 +38,19 @@ function DeskcordPanel() {
             <button type="button" className="dc-button" onClick={() => openFolder("themes")}><Icon name="folder" />Pasta de temas</button>
             <button type="button" className="dc-button" onClick={relaunch}><Icon name="reload" />Reiniciar Discord</button></div>
         {error && <p className="dc-error" role="alert">{error}</p>}
+        <h3 className="dc-section-title dc-section-divider">Aparência</h3>
+        <div className="dc-setting-row"><div><h3>Clássico compacto</h3><p>Espaçamento menor, cantos discretos e cores clássicas no modo escuro. Visual inspirado no Discord antigo, integrado e sem download.</p></div>
+            <Switch label="Clássico compacto" checked={deskcord.classicCompact} onChange={value => { Settings.deskcord.classicCompact = value; }} /></div>
+        <p className="dc-help">Mantém a versão atual do Discord. Não instala versões antigas nem altera suas preferências de aparência da conta. Temas externos podem substituir esse visual.</p>
         <h3 className="dc-section-title dc-section-divider">Desempenho</h3>
         <div className="dc-setting-row"><div><h3>Modo batata</h3><p>Reduz animações, sombras e desfoques. Desativa reprodução automática e recolhe mídias e prévias de links.</p></div>
             <Switch label="Modo batata" checked={deskcord.potato} onChange={value => { Settings.deskcord.potato = value; }} /></div>
-        <div className="dc-setting-row"><div><h3>Pausar temas no modo batata</h3><p>Usa a aparência do Discord enquanto o modo estiver ativo. Seus temas voltam ao desligar.</p></div>
+        <div className="dc-setting-row"><div><h3>Pausar temas no modo batata</h3><p>Pausa temas externos enquanto o modo estiver ativo. O Clássico compacto continua disponível. Seus temas voltam ao desligar.</p></div>
             <Switch label="Pausar temas no modo batata" checked={deskcord.disableThemesInPotato} onChange={value => { Settings.deskcord.disableThemesInPotato = value; }} /></div>
         <div className="dc-info-panel dc-performance-note"><h3>O que o modo batata preserva</h3><p>Chamadas, mensagens e notificações continuam disponíveis. Suas preferências de mídia da conta ficam intactas.</p>
             <p className="dc-muted">O ganho de RAM depende do uso e ainda precisa ser medido no Discord real.</p></div>
         <details className="dc-diagnostics"><summary>Compatibilidade e versão</summary>
+            <p>Os controles de mídia são conectados ao ativar o modo batata ou verificar abaixo. Com o modo desligado, os métodos originais do Discord ficam livres.</p>
             <p>{compatibility} de {total} controles de mídia conectados ao Discord.</p>
             {compatibility < total && <><p role="status">Alguns controles ainda não estão disponíveis nesta versão do Discord. A redução de efeitos por CSS continua disponível.</p>
                 <button type="button" className="dc-button" onClick={() => { installPerformanceHooks(); setCompatibility(getCompatibilityCount()); }}>Verificar novamente</button></>}

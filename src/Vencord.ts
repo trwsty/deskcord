@@ -35,7 +35,7 @@ import { initStyles } from "@api/Styles";
 import { StartAt } from "@utils/types";
 import { onceReady } from "@webpack";
 
-import { installPerformanceHooks, syncPotatoClass } from "./deskcord/performance";
+import { preparePerformanceHooks, syncAppearanceClass, syncPotatoClass } from "./deskcord/performance";
 import { prepare } from "./deskcord/plugins/runtime";
 
 let booted = false;
@@ -48,12 +48,14 @@ export function boot() {
     startAllPlugins(StartAt.Init);
     onceReady.then(() => {
         startAllPlugins(StartAt.WebpackReady);
-        installPerformanceHooks();
+        preparePerformanceHooks();
     }).catch(() => console.error("[Deskcord] Falha na integração de desempenho."));
     SettingsStore.addChangeListener("deskcord.potato", syncPotatoClass);
+    SettingsStore.addChangeListener("deskcord.classicCompact", syncAppearanceClass);
     const onDomReady = () => {
         startAllPlugins(StartAt.DOMContentLoaded);
         syncPotatoClass();
+        syncAppearanceClass();
     };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", onDomReady, { once: true });
     else onDomReady();

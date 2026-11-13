@@ -8,6 +8,8 @@ A primeira ativação baixa somente o plugin e suas dependências. Desativar rem
 
 Tipografia herdada do cliente, 12–14 px no conteúdo. Espaçamentos 6/8/12/16/24 px. Raio 4–6 px nos controles e cards; 8 px nos diálogos. Foco visível, switches operáveis por teclado, fechamento com Esc, anúncios de estados assíncronos, controles e listas responsivos. Sem fontes remotas, imagens decorativas ou animações.
 
+O Clássico compacto é uma preferência local independente do modo batata e de temas externos. Reduz espaçamento de canais, grupos de mensagens e campo de texto; cores clássicas limitadas ao modo escuro. Usa CSS integrado, sem assets ou downloads. Não esconder controles da janela, mensagens ou recursos de voz; preservar modo claro e seletores sem suporte. Não apresentar como downgrade ou recuperação integral de uma versão antiga. Temas externos têm prioridade na cascata.
+
 ## Instalador Windows
 
 Janela WPF compacta, 780 × 720 px, redimensionável até 680 × 660 px com conteúdo rolável. Uma coluna, marca e versão no topo, seleção do Discord em superfície discreta, caminho completo legível, status junto das ações e resultado selecionável. Sem barra lateral decorativa ou etapas numeradas. Ação de instalar em azul; reinstalar/reparar e desinstalar em uma linha secundária. Rodapé discreto com preservação das preferências, autoria e licenças.

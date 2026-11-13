@@ -80,8 +80,12 @@ function init() {
     const reload = () => { refreshThemes().catch(() => { console.error("[Deskcord] Falha ao carregar temas."); }); };
     reload();
     SettingsStore.addChangeListener("enabledThemes", reload);
-    SettingsStore.addChangeListener("deskcord.potato", reload);
-    SettingsStore.addChangeListener("deskcord.disableThemesInPotato", reload);
+    SettingsStore.addChangeListener("deskcord.potato", () => {
+        if (Settings.deskcord.disableThemesInPotato) reload();
+    });
+    SettingsStore.addChangeListener("deskcord.disableThemesInPotato", () => {
+        if (Settings.deskcord.potato) reload();
+    });
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
 else init();

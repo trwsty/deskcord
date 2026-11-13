@@ -1,0 +1,44 @@
+html.dc-classic {
+    --radius-sm: 4px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+}
+
+html.dc-classic.theme-dark,
+html.dc-classic .theme-dark {
+    --background-primary: #313338;
+    --background-secondary: #2b2d31;
+    --background-secondary-alt: #232428;
+    --background-tertiary: #1e1f22;
+    --background-base-low: #313338;
+    --background-base-lower: #2b2d31;
+    --background-base-lowest: #1e1f22;
+}
+
+html.dc-classic [data-list-id="channels"] [class*="link_"] {
+    min-height: 28px;
+    padding-block: 3px;
+    border-radius: 4px;
+}
+
+html.dc-classic [data-list-id="channels"] [class*="name_"] {
+    font-size: 14px;
+}
+
+html.dc-classic [data-list-id="chat-messages"] [class*="groupStart_"] {
+    margin-top: 12px;
+}
+
+html.dc-classic [data-list-id="chat-messages"] [class*="cozyMessage_"] {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+html.dc-classic [class*="channelTextArea_"] {
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+html.dc-classic .dc-setting-row {
+    padding-block: 12px;
+}
