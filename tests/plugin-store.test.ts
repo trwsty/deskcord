@@ -47,10 +47,44 @@ test("catalog browsing downloads nothing; install fetches only the chosen plugin
         const restarted = createPluginStore(f.root, f.catalog, f.download);
         assert.deepEqual(restarted.startup.map(item => item.plugin.id), ["shared", "first"]);
         await store.setEnabled("first", false);
-        assert.deepEqual(store.state().enabled, []); assert.equal(store.state().installed.length, 2);
+        assert.deepEqual(store.state().enabled, []); assert.equal(store.state().installed.length, 0);
         await store.remove("first");
         assert.deepEqual(store.state().installed, []);
         assert.deepEqual(readdirSync(f.root), ["plugins.json"]);
+    } finally { f.cleanup(); }
+});
+
+test("deactivation deletes packages and native files but retains shared dependencies", async () => {
+    const f = fixture();
+    try {
+        const store = createPluginStore(f.root, f.catalog, f.download, "https://packages.example.org/");
+        await store.install("first"); await store.install("second");
+        store.nativePath("first", "// fixture");
+        await store.setEnabled("first", false);
+        assert.deepEqual(store.state().installed, ["shared", "second"]);
+        assert.equal(readdirSync(f.root).includes("first.cjs"), false);
+        await store.setEnabled("second", false);
+        assert.deepEqual(readdirSync(f.root), ["plugins.json"]);
+    } finally { f.cleanup(); }
+});
+
+test("live code is limited to enabled, compatible packages and is hash-verified again", async () => {
+    const f = fixture();
+    try {
+        f.catalog.plugins.forEach(plugin => plugin.hotReload = true);
+        const store = createPluginStore(f.root, f.catalog, f.download, "https://packages.example.org/");
+        assert.throws(() => store.livePackages(["first"]), /reinício/);
+        await store.install("first");
+        assert.equal(store.livePackages(["first"])[0].name, "first");
+        assert.deepEqual(store.rendererPackages().map(item => item.plugin.id), ["shared", "first"]);
+        f.catalog.plugins.find(plugin => plugin.id === "first")!.hasNative = true;
+        assert.throws(() => store.livePackages(["first"]), /reinício/);
+        f.catalog.plugins.find(plugin => plugin.id === "first")!.hasNative = false;
+        const plugin = f.catalog.plugins.find(plugin => plugin.id === "first")!;
+        writeFileSync(join(f.root, plugin.file!), "tampered");
+        assert.throws(() => store.livePackages(["first"]));
+        assert.deepEqual(store.rendererPackages(), []);
+        assert.throws(() => store.livePackages(new Array(129).fill("first")), /inválida/);
     } finally { f.cleanup(); }
 });
 

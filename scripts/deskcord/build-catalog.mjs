@@ -56,8 +56,20 @@ for (const source of sources.sort((a, b) => a.name.localeCompare(b.name))) {
     }
     const dependencies = new Set(source.dependencies);
     const sourceFile = ts.createSourceFile(entry, await readFile(entry, "utf8"), ts.ScriptTarget.Latest);
+    let hasStart = false, hasStop = false, forcedRestart = true, asyncLifecycle = false;
     function scan(node) {
         if ((ts.isPropertyAssignment(node) || ts.isMethodDeclaration(node)) && node.name && apiForProperty[node.name.getText(sourceFile)]) dependencies.add(apiForProperty[node.name.getText(sourceFile)]);
+        if (ts.isCallExpression(node) && node.expression.getText(sourceFile) === "definePlugin" && node.arguments[0] && ts.isObjectLiteralExpression(node.arguments[0])) {
+            forcedRestart = false;
+            for (const property of node.arguments[0].properties) if (property.name) {
+                const name = property.name.getText(sourceFile);
+                if (name === "requiresRestart" && (!ts.isPropertyAssignment(property) || property.initializer.kind !== ts.SyntaxKind.FalseKeyword)) forcedRestart = true;
+                if (name === "start") hasStart = true;
+                if (name === "stop") hasStop = true;
+                if (["start", "stop"].includes(name) && (property.modifiers?.some(mod => mod.kind === ts.SyntaxKind.AsyncKeyword)
+                    || (ts.isPropertyAssignment(property) && property.initializer.modifiers?.some(mod => mod.kind === ts.SyntaxKind.AsyncKeyword)))) asyncLifecycle = true;
+            }
+        }
         ts.forEachChild(node, scan);
     }
     scan(sourceFile);
@@ -109,6 +121,7 @@ for (const source of sources.sort((a, b) => a.name.localeCompare(b.name))) {
             nativeCode = result.outputFiles[0].text;
             info.hasNative = true;
         }
+        info.hotReload = !source.hasPatches && !info.hasNative && !forcedRestart && !asyncLifecycle && (!hasStart || hasStop);
         const payload = { format: 1, id: info.id, name: source.name, revision,
             renderer: result.outputFiles.find(file => file.path.endsWith(".js"))?.text ?? "",
             css: result.outputFiles.find(file => file.path.endsWith(".css"))?.text ?? "", ...(nativeCode ? { native: nativeCode } : {}) };

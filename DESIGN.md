@@ -4,7 +4,7 @@ Interface de operação dentro das configurações do Discord. A referência vis
 
 Três abas: Deskcord, Plugins e Temas. Sem cabeçalhos de marketing. Deskcord reúne informações, ações rápidas e linhas de preferências. Plugins usa cartões em duas colunas, busca, filtros por categoria/estado e origem; uma coluna em janelas estreitas. Cards mostram nome, descrição em português, origem, autor e switch. Detalhes e opções ficam em diálogo nativo com foco protegido e retorno ao acionador. Temas segue blocos compactos de orientação, barra de ações e a mesma grade.
 
-A primeira ativação baixa somente o plugin e suas dependências. Instalação, ativação e desativação usam o mesmo aviso para reiniciar o Discord. Não simular doações, nuvem ou atualização automática enquanto os serviços não estiverem configurados.
+A primeira ativação baixa somente o plugin e suas dependências. Desativar remove os arquivos sem uso, preservando dependências compartilhadas. Plugins com ciclo de vida compatível ligam e desligam na hora. O aviso de reinício aparece quando código aplicado, patches, módulos nativos ou falhas ainda exigem reinício; não usar um aviso obrigatório para todos. Não simular doações, nuvem ou atualização automática enquanto os serviços não estiverem configurados.
 
 Tipografia herdada do cliente, 12–14 px no conteúdo. Espaçamentos 6/8/12/16/24 px. Raio 4–6 px nos controles e cards; 8 px nos diálogos. Foco visível, switches operáveis por teclado, fechamento com Esc, anúncios de estados assíncronos, controles e listas responsivos. Sem fontes remotas, imagens decorativas ou animações.
 

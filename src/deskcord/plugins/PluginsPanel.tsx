@@ -12,7 +12,7 @@ import { Switch } from "../Switch";
 import rawCatalog from "./catalog.json";
 import { CatalogPlugin, origins, PluginCatalog, PluginOrigin, PluginState } from "./model";
 import { PluginDetails } from "./PluginDetails";
-import { status } from "./runtime";
+import { applyState, needsRestart, status } from "./runtime";
 
 const catalog = rawCatalog as PluginCatalog;
 const plugins = catalog.plugins.filter(plugin => !plugin.hidden);
@@ -43,8 +43,18 @@ export function PluginsPanel() {
 
     async function action(id: string, operation: () => Promise<PluginState>, message: string) {
         setBusy(id); setError(""); setNotice(""); setFeedbackPlugin(id);
-        try { setState(await operation()); setNotice(message); }
-        catch (error) { setError(error instanceof Error ? error.message : "Não foi possível concluir a operação. Tente novamente."); }
+        try {
+            const next = await operation(); setState(next);
+            if (state && id !== "repository") await applyState(state, next);
+            setNotice(id !== "repository" && needsRestart(next) ? "Arquivos atualizados. Reinicie o Discord para aplicar as mudanças que exigem reinício." : message);
+        }
+        catch (error) {
+            try {
+                const current = await VencordNative.plugins.state(); setState(current);
+                if (state && id !== "repository") await applyState(state, current);
+            } catch { /* Keep the original operation error visible. */ }
+            setError(error instanceof Error ? error.message : "Não foi possível concluir a operação. Tente novamente.");
+        }
         finally { setBusy(""); }
     }
     const visible = plugins.filter(plugin => (origin === "all" || plugin.origin === origin)
@@ -52,10 +62,10 @@ export function PluginsPanel() {
         && (filter === "all" || (filter === "installed" ? state?.installed.includes(plugin.id)
             : filter === "enabled" ? state?.enabled.includes(plugin.id) : !plugin.available))
         && normalize(`${plugin.name} ${plugin.description} ${plugin.authors.map(author => author.name).join(" ")}`).includes(normalize(query)));
-    const pending = state && (state.enabled.some(id => !state.loadedAtStartup.includes(id)) || state.loadedAtStartup.some(id => !state.enabled.includes(id)));
+    const pending = state && needsRestart(state);
 
     return <section className="dc-page dc-plugins" aria-label="Catálogo de plugins">
-        <div className="dc-info-panel"><h2>Gerenciar plugins</h2><p>Use o botão de informações ou a engrenagem para ver detalhes e opções de um plugin.</p><p>Na primeira ativação, o switch baixa o plugin e suas dependências. Reinicie o Discord para iniciar.</p></div>
+        <div className="dc-info-panel"><h2>Gerenciar plugins</h2><p>Use o botão de informações ou a engrenagem para ver detalhes e opções de um plugin.</p><p>Ativar baixa o plugin e suas dependências. Desativar remove os arquivos sem uso. Plugins compatíveis mudam na hora; os demais pedem reinício.</p></div>
         <h3 className="dc-section-title">Filtros</h3>
         <div className="dc-origin-filters" role="group" aria-label="Origem dos plugins">
             {[["all", "Todos"], ...Object.entries(origins)].map(([value, label]) =>
@@ -67,7 +77,7 @@ export function PluginsPanel() {
             <label>Mostrar<select value={filter} onChange={event => { setFilter(event.currentTarget.value); setLimit(24); }}><option value="all">Todos</option><option value="installed">Instalados</option><option value="enabled">Ativados</option><option value="unavailable">Precisam de adaptação</option></select></label>
         </div>
         {state && !state.repository && <p className="dc-notice" role="status">Instalação de plugins indisponível: esta versão ainda não tem um servidor de downloads configurado. Os plugins abaixo estão no catálogo, mas ainda não podem ser baixados. Plugins já instalados continuam disponíveis.</p>}
-        {pending && <div className="dc-plugin-restart" role="status"><p>Reinicie o Discord para aplicar as alterações e iniciar os plugins ativados.</p><button type="button" className="dc-button" onClick={relaunch}>Reiniciar Discord</button></div>}
+        {pending && <div className="dc-plugin-restart" role="status"><p>Algumas alterações precisam de reinício. Os arquivos desativados já foram removidos; o código em uso termina ao reiniciar.</p><button type="button" className="dc-button" onClick={relaunch}>Reiniciar Discord</button></div>}
         {state?.errors.startup && <p className="dc-error" role="alert">{state.errors.startup}</p>}
         <p className="dc-plugin-count" role="status" aria-live="polite">{!state && !error ? "Carregando catálogo…" : `${visible.length} ${visible.length === 1 ? "plugin encontrado" : "plugins encontrados"}${state ? ` · ${state.installed.filter(id => plugins.some(plugin => plugin.id === id)).length} instalados` : ""}`}</p>
         {notice && !pending && <p className="dc-notice" role="status">{notice}</p>}
@@ -78,7 +88,7 @@ export function PluginsPanel() {
             const installed = state?.installed.includes(plugin.id) ?? false;
             const enabled = state?.enabled.includes(plugin.id) ?? false;
             const runtime = status(plugin.name);
-            const changed = state && enabled !== state.loadedAtStartup.includes(plugin.id);
+            const changed = enabled !== (runtime === "active");
             async function toggle(value: boolean) {
                 if (value && !installed && !state?.repository) {
                     setFeedbackPlugin(plugin.id); setNotice("");
@@ -86,7 +96,7 @@ export function PluginsPanel() {
                     return;
                 }
                 await action(plugin.id, () => value && !installed ? VencordNative.plugins.install(plugin.id) : VencordNative.plugins.setEnabled(plugin.id, value),
-                    value ? "Reinicie o Discord para iniciar o plugin." : "Reinicie o Discord para concluir a desativação do plugin.");
+                    value ? "Plugin ativado nesta sessão." : "Plugin desativado. Arquivos sem uso removidos.");
             }
             return <li key={plugin.id} className={`dc-plugin-row${!plugin.available ? " dc-plugin-unavailable-card" : ""}`} data-plugin={plugin.id}>
                 <div className="dc-plugin-card-top"><h3 title={plugin.name}>{plugin.name}</h3>
@@ -98,12 +108,12 @@ export function PluginsPanel() {
                 {!plugin.available && <p className="dc-plugin-unavailable">Requer adaptação · ver informações</p>}
                 {busy === plugin.id && <p className="dc-plugin-meta" role="status">Baixando e verificando…</p>}
                 {error && feedbackPlugin === plugin.id && <p className="dc-error" role="alert">{error}</p>}
-                {installed && <p className="dc-plugin-meta">{changed ? "Precisa reiniciar" : runtime === "active" ? "Ativo" : runtime === "failed" ? "Falha ao iniciar" : enabled ? "Inicialização não confirmada" : "Desativado"}</p>}
+                {(installed || runtime === "active") && <p className="dc-plugin-meta">{changed ? "Precisa reiniciar" : runtime === "active" ? "Ativo" : runtime === "failed" ? "Falha ao iniciar" : enabled ? "Inicialização não confirmada" : "Desativado"}</p>}
             </li>;
         })}</ul>
         {selected && <PluginDetails plugin={selected} installed={state?.installed.includes(selected.id) ?? false} onClose={() => setSelected(null)} onRemove={() => {
             setSelected(null);
-            action(selected.id, () => VencordNative.plugins.remove(selected.id), "Plugin removido. Reinicie o Discord para encerrar os efeitos desta sessão.");
+            action(selected.id, () => VencordNative.plugins.remove(selected.id), "Plugin removido. Dependências compartilhadas foram preservadas.");
         }} />}
         {visible.length > limit && <button type="button" className="dc-button dc-load-more" onClick={() => setLimit(value => value + 24)}>Mostrar mais plugins</button>}
         <p className="dc-footnote">Pacotes do Vencord preparados para o Deskcord; testes individuais dentro do Discord ainda são necessários. Plugins executam código e podem aumentar consumo, acessar dados do cliente ou usar serviços externos. A explicação em português preserva o nome e a autoria originais.</p>

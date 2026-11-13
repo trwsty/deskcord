@@ -44,6 +44,7 @@ let win: Window;
 // probably should make this less cursed at some point
 window.VencordNative = {
     plugins: {
+        load: async () => { throw new Error("Plugins sob demanda são exclusivos do desktop."); },
         state: async () => ({ repository: "", enabled: [], installed: [], loadedAtStartup: [], errors: {} }),
         install: async () => { throw new Error("Plugins sob demanda são exclusivos do Deskcord desktop."); },
         setEnabled: async () => { throw new Error("Plugins sob demanda são exclusivos do Deskcord desktop."); },

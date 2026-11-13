@@ -81,3 +81,11 @@ O teste WPF executa instalação, reinstalação, remoção e erro de backup usa
 Os wrappers de mídia só ficam instalados enquanto o modo batata está ativo. Ao desligar, os métodos originais voltam; a descoberta dos seis controles continua disponível no diagnóstico. A restauração preserva alterações posteriores de outras integrações e falhas parciais de instalação do wrapper são revertidas. Testes de React verificam que a instrumentação tardia e a remoção não mudam a ordem dos hooks.
 
 Redução do tamanho do instalador não equivale a redução percentual de RAM do Discord. O custo base do Electron e o conteúdo dos canais continuam existindo. Ainda é necessário um benchmark controlado de CPU/memória e testes individuais dos plugins para quantificar ganhos e compatibilidade.
+
+## Ciclo de vida de plugins 0.6.0
+
+Desativação remove os pacotes JSON, auxiliares nativos e dependências que não servem a outro plugin. A operação é serializada e uma repetição pode limpar arquivos restantes após falha de remoção. Os testes conferem a preservação de dependências compartilhadas e a recusa de código adulterado ou inelegível no carregamento imediato.
+
+O catálogo classifica candidatos conservadoramente pela definição `definePlugin`, patches, módulo nativo, declaração de reinício e métodos síncronos de iniciar/parar. O runtime confirma novamente as características do objeto real e a disponibilidade das dependências. Plugins incompatíveis não recebem patches depois que o Webpack já carregou. Falhas e módulos nativos continuam gerando indicação de reinício. A recarga do renderer prepara a seleção atual e não reutiliza uma lista antiga de plugins removidos; novos módulos nativos aguardam reinício do processo principal.
+
+No Discord real, NoMiddleClickPaste foi baixado, iniciado, parado, removido e reativado sem reiniciar. A seleção de teste foi removida ao final e o arquivo deixou de existir no perfil. O teste de navegador cobre mudança imediata sem aviso e o caso com patches mantendo aviso de reinício. Essas evidências não garantem que todos os plugins e suas integrações externas funcionem em toda revisão do Discord.

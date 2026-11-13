@@ -324,14 +324,22 @@ export const stopPlugin = traceFunction("stopPlugin", function stopPlugin(p: Plu
     return true;
 }, p => `stopPlugin ${p.name}`);
 
-export const initPluginManager = onlyOnce(function init() {
-    const pluginsValues = Object.values(Plugins);
-    const settings = Settings.plugins;
-
+export function initializePluginRuntime(p: Plugin) {
     const pluginKeysToBind: Array<keyof PluginDef & `${"on" | "render"}${string}`> = [
         "onBeforeMessageEdit", "onBeforeMessageSend", "onMessageClick",
         "renderMemberListDecorator", "renderMessageAccessory", "renderMessageDecoration"
     ];
+    for (const key of pluginKeysToBind) p[key] &&= p[key].bind(p) as any;
+    if (p.settings) {
+        p.settings.pluginName = p.name;
+        for (const [key, def] of Object.entries(p.settings.def))
+            if (def.onChange) SettingsStore.addChangeListener(`plugins.${p.name}.${key}`, def.onChange);
+    }
+}
+
+export const initPluginManager = onlyOnce(function init() {
+    const pluginsValues = Object.values(Plugins);
+    const settings = Settings.plugins;
 
     const neededApiPlugins = new Set<string>();
 
@@ -367,9 +375,6 @@ export const initPluginManager = onlyOnce(function init() {
         if (p.messagePopoverButton) neededApiPlugins.add("MessagePopoverAPI");
         if (p.userProfileBadge) neededApiPlugins.add("BadgeAPI");
 
-        for (const key of pluginKeysToBind) {
-            p[key] &&= p[key].bind(p) as any;
-        }
     }
 
     for (const p of neededApiPlugins) {
@@ -378,14 +383,7 @@ export const initPluginManager = onlyOnce(function init() {
     }
 
     for (const p of pluginsValues) {
-        if (p.settings) {
-            p.settings.pluginName = p.name;
-
-            for (const [key, def] of Object.entries(p.settings.def)) {
-                if (def.onChange)
-                    SettingsStore.addChangeListener(`plugins.${p.name}.${key}`, def.onChange);
-            }
-        }
+        initializePluginRuntime(p);
 
         if (p.patches && isPluginEnabled(p.name)) {
             if (!IS_REPORTER || isReporterTestable(p, ReporterTestable.Patches)) {

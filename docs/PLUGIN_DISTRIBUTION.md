@@ -15,8 +15,8 @@ BetterDiscord, Equicord, Universais e Deskcord têm filtros próprios, inicialme
 3. Baixa sequencialmente apenas pacotes ausentes, via HTTPS público. Não envia cookies ou credenciais do Discord. Redirecionamentos também passam pela validação de destino e DNS.
 4. Verifica tamanho, SHA-256, identificador e revisão contra o catálogo que veio no cliente. O servidor não pode autorizar código novo alterando um manifesto remoto.
 5. Salva os pacotes em `%APPDATA%\Deskcord\plugins`. Uma instalação interrompida não ativa um conjunto parcial.
-6. A pessoa reinicia o Discord. Os pacotes são verificados novamente, registrados antes da inicialização do gerenciador e aplicados antes de os módulos do Discord carregarem. Módulos nativos também só são preparados na inicialização.
-7. Desativar preserva o download. Remover apaga pacotes sem dependentes instalados. Mudanças em código já carregado exigem reinício para encerrar seus efeitos.
+6. Plugins elegíveis podem iniciar na hora: sem patches, sem módulo nativo, sem reinício declarado e com ciclo de vida síncrono reversível. Toda dependência nova também precisa ser elegível; dependências já iniciadas podem ser reutilizadas. O processo principal verifica novamente os hashes antes de o preload executar o pacote no renderer, sem relaxar CSP ou sandbox. Patches e novos módulos nativos precisam de reinício.
+7. Desativar remove o pacote e dependências sem outros usuários. O renderer tenta parar os plugins compatíveis e retira seu CSS; dependências compartilhadas continuam ativas. Código com patches, módulos nativos ou falha ao parar pode continuar na sessão até reiniciar, mesmo com os arquivos já removidos. Preferências são preservadas para uma próxima instalação.
 
 Os pacotes compartilham as APIs e stores do núcleo. Os módulos nativos compartilham o store do processo principal para evitar registrar handlers IPC duplicados. Falhas na abertura da pasta de plugins não devem impedir o núcleo de iniciar. O argumento `--deskcord-safe` pula plugins opcionais; após corrigir a seleção, feche e abra normalmente pelo atalho.
 

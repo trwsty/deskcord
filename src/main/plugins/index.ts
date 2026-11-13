@@ -23,7 +23,7 @@ function openStore(): ReturnType<typeof createPluginStore> {
         const unavailable = () => { throw new Error("Não foi possível abrir a pasta dos plugins. Verifique as permissões e reinicie o Discord."); };
         return {
             startup: [], state: () => ({ repository: "", installed: [], enabled: [], loadedAtStartup: [], errors: { startup: "Os plugins opcionais não puderam ser preparados. O núcleo continua disponível." } }),
-            install: unavailable, remove: unavailable, setEnabled: unavailable, setRepository: unavailable, nativePath: unavailable
+            install: unavailable, remove: unavailable, setEnabled: unavailable, setRepository: unavailable, nativePath: unavailable, livePackages: unavailable, rendererPackages: () => []
         };
     }
 }
@@ -41,13 +41,13 @@ export function requireDiscordFrame(event: IpcMainEvent | IpcMainInvokeEvent) {
 }
 
 export function startupRenderer() {
-    return pluginStore.startup.map(({ plugin, package: pkg }) =>
-        `;try{${pkg.renderer}\n}catch(e){Vencord.Deskcord.failed(${JSON.stringify(plugin.name)});}\n`)
+    return pluginStore.rendererPackages().map(({ plugin, package: pkg }) =>
+        `;try{${pkg.renderer}\n;Vencord.Deskcord.setCss(${JSON.stringify(plugin.name)},${JSON.stringify(pkg.css)});}catch(e){Vencord.Deskcord.failed(${JSON.stringify(plugin.name)});}\n`)
         .join("\n") + "\n;Vencord.boot();\n";
 }
 
 export function startupCss() {
-    return pluginStore.startup.map(item => item.package.css).join("\n");
+    return "";
 }
 
 export function nativePlugins() {
@@ -64,3 +64,4 @@ ipcMain.handle(IpcEvents.DESKCORD_PLUGINS_INSTALL, (event, id: unknown) => { req
 ipcMain.handle(IpcEvents.DESKCORD_PLUGINS_ENABLE, (event, id: unknown, enabled: unknown) => { requireDiscordFrame(event); return pluginStore.setEnabled(id, enabled); });
 ipcMain.handle(IpcEvents.DESKCORD_PLUGINS_REMOVE, (event, id: unknown) => { requireDiscordFrame(event); return pluginStore.remove(id); });
 ipcMain.handle(IpcEvents.DESKCORD_PLUGINS_REPOSITORY, (event, url: unknown) => { requireDiscordFrame(event); return pluginStore.setRepository(url); });
+ipcMain.handle(IpcEvents.DESKCORD_PLUGINS_LIVE, (event, ids: unknown) => { requireDiscordFrame(event); return pluginStore.livePackages(ids); });

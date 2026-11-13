@@ -23,6 +23,7 @@ export interface CatalogPlugin {
     file?: string;
     hasNative: boolean;
     hasSettings?: boolean;
+    hotReload?: boolean;
 }
 export interface PluginCatalog {
     format: 1;

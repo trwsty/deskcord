@@ -10,7 +10,7 @@ import type { PluginIpcMappings } from "@main/ipcPlugins";
 import type { UserThemeHeader } from "@main/themes";
 import { IpcEvents } from "@shared/IpcEvents";
 import type { IpcRes } from "@utils/types";
-import { ipcRenderer } from "electron/renderer";
+import { ipcRenderer, webFrame } from "electron/renderer";
 
 import type { PluginState } from "./deskcord/plugins/model";
 
@@ -38,7 +38,11 @@ export default {
         install: (id: string) => invoke<PluginState>(IpcEvents.DESKCORD_PLUGINS_INSTALL, id),
         setEnabled: (id: string, enabled: boolean) => invoke<PluginState>(IpcEvents.DESKCORD_PLUGINS_ENABLE, id, enabled),
         remove: (id: string) => invoke<PluginState>(IpcEvents.DESKCORD_PLUGINS_REMOVE, id),
-        setRepository: (url: string) => invoke<PluginState>(IpcEvents.DESKCORD_PLUGINS_REPOSITORY, url)
+        setRepository: (url: string) => invoke<PluginState>(IpcEvents.DESKCORD_PLUGINS_REPOSITORY, url),
+        load: async (ids: string[]) => {
+            const packages = await invoke<{ name: string; renderer: string; css: string; }[]>(IpcEvents.DESKCORD_PLUGINS_LIVE, ids);
+            for (const pkg of packages) await webFrame.executeJavaScript(`;try{${pkg.renderer}\n;Vencord.Deskcord.setCss(${JSON.stringify(pkg.name)},${JSON.stringify(pkg.css)});}catch(e){Vencord.Deskcord.failed(${JSON.stringify(pkg.name)});}void 0;`);
+        }
     },
     themes: {
         uploadTheme: async (fileName: string, fileData: string): Promise<void> => {

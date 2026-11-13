@@ -27,7 +27,7 @@ O preview usa as abas reais com uma ponte de teste, sem conexão com o Discord. 
 
 ## Instalar e remover
 
-Abra **Deskcord-Setup-0.5.0.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
+Abra **Deskcord-Setup-0.6.0.exe**. O instalador gráfico seleciona o Discord padrão e permite escolher PTB, Canary ou uma pasta personalizada. Use **Instalar**, **Reinstalar / reparar** ou **Desinstalar**. Ele fecha os processos da instalação escolhida e abre o Discord ao concluir, se essa opção estiver marcada. Não exige Node instalado nem elevação de administrador nas instalações do usuário.
 
 O carregador padrão do Vencord é reconhecido e substituído, com uma cópia em `resources\deskcord-vencord-backup.asar`. Outros modificadores são recusados. Configurações do Vencord não são importadas. Para desenvolvimento pela CLI, feche o Discord antes:
 
@@ -73,6 +73,6 @@ Quando configurado, o modo batata pausa os temas e os restaura ao desligar, mant
 
 ## Limites e atribuição
 
-Sem badges, pagamentos, nuvem ou atualizador remoto nesta versão. Os plugins opcionais são baixados individualmente e só carregam após reiniciar. A desativação preserva o download; Remover libera os pacotes sem outros dependentes instalados. Somente três módulos internos de compatibilidade vêm no núcleo; nenhum código de plugin opcional integra esse bundle. Filtros para BetterDiscord, Equicord, Universais e Deskcord estão preparados, sem afirmar compatibilidade automática. Plugins de outros formatos precisam de adaptação.
+Sem badges, pagamentos, nuvem ou atualizador remoto nesta versão. Os plugins opcionais são baixados individualmente. Desativar remove os arquivos do plugin e as dependências sem outros usuários; opções e preferências são preservadas. Plugins compatíveis podem iniciar e parar na hora, inclusive após o primeiro download. Patches, novos módulos nativos, dependências incompatíveis ou falhas de ciclo de vida exigem reinício; remover o arquivo não descarrega código já aplicado. Somente três módulos internos de compatibilidade vêm no núcleo; nenhum código de plugin opcional integra esse bundle. Filtros para BetterDiscord, Equicord, Universais e Deskcord estão preparados, sem afirmar compatibilidade automática. Plugins de outros formatos precisam de adaptação.
 
 Mods não autorizados contrariam os [termos do Discord](https://discord.com/terms). Não há garantia de compatibilidade futura ou de ausência de risco para contas. Testes no Discord real e benchmarks permanecem necessários. Consulte [docs/VALIDATION.md](docs/VALIDATION.md), [NOTICE.md](NOTICE.md) e [LICENSE](LICENSE).

@@ -130,6 +130,7 @@ export function createPluginStore(directory: string, catalog: PluginCatalog,
         });
     }
     function setEnabled(id: unknown, enabled: unknown) {
+        if (enabled === false) return remove(id);
         return mutate(() => {
             const plugin = known(id);
             if (typeof enabled !== "boolean") throw new Error("Estado de ativação inválido.");
@@ -140,13 +141,36 @@ export function createPluginStore(directory: string, catalog: PluginCatalog,
             persist({ ...data, roots, enabled: next });
         });
     }
+    function livePackages(ids: unknown) {
+        if (!Array.isArray(ids) || ids.length > 128) throw new Error("Lista de plugins inválida.");
+        const enabled = new Set(state().enabled);
+        return [...new Set(ids)].map(id => {
+            const plugin = known(id);
+            if (!enabled.has(plugin.id) || plugin.hotReload !== true || plugin.hasNative) throw new Error("Este plugin precisa de reinício.");
+            const pkg = read(plugin);
+            if (pkg.native) throw new Error("Módulos nativos precisam de reinício.");
+            return { name: plugin.name, renderer: pkg.renderer, css: pkg.css };
+        });
+    }
+    function rendererPackages() {
+        try {
+            const order = dependencyOrder(catalog, data.enabled);
+            const nativeReady = new Set(startup.filter(item => item.package.native).map(item => item.plugin.id));
+            const blocked = new Set(order.filter(plugin => plugin.hasNative && !nativeReady.has(plugin.id)).map(plugin => plugin.id));
+            for (const plugin of order) if (plugin.dependencies.some(id => blocked.has(id))) blocked.add(plugin.id);
+            return order.filter(plugin => !blocked.has(plugin.id)).map(plugin => ({ plugin, package: read(plugin) }));
+        } catch {
+            errors.startup = "Um pacote foi alterado ou está ausente. Nenhum plugin opcional foi preparado para esta recarga.";
+            return [];
+        }
+    }
     function remove(id: unknown) {
         return mutate(() => {
             const plugin = known(id);
             const roots = data.roots.filter(item => item !== plugin.id);
             const remaining = new Set(dependencyOrder(catalog, roots).map(item => item.id));
             if (remaining.has(plugin.id)) throw new Error("Outro plugin instalado precisa deste módulo. Remova o outro plugin primeiro.");
-            const previous = dependencyOrder(catalog, data.roots);
+            const previous = dependencyOrder(catalog, [...new Set([...data.roots, plugin.id])]);
             persist({ ...data, roots, enabled: data.enabled.filter(item => item !== plugin.id) });
             for (const item of previous) if (!remaining.has(item.id) && item.file) {
                 const file = path(item.file);
@@ -156,7 +180,7 @@ export function createPluginStore(directory: string, catalog: PluginCatalog,
             }
         });
     }
-    return { state, startup, install, setEnabled, remove,
+    return { state, startup, install, setEnabled, remove, livePackages, rendererPackages,
         setRepository: (url: unknown) => mutate(() => { persist({ ...data, repository: repositoryUrl(url) }); }),
         nativePath: (id: string, code: string) => {
             known(id);

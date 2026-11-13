@@ -22,6 +22,7 @@ export const enum IpcEvents {
     DESKCORD_PLUGINS_ENABLE = "DeskcordPluginsEnable",
     DESKCORD_PLUGINS_REMOVE = "DeskcordPluginsRemove",
     DESKCORD_PLUGINS_REPOSITORY = "DeskcordPluginsRepository",
+    DESKCORD_PLUGINS_LIVE = "DeskcordPluginsLive",
     INIT_FILE_WATCHERS = "VencordInitFileWatchers",
 
     OPEN_QUICKCSS = "VencordOpenQuickCss",

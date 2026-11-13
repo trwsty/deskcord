@@ -28,6 +28,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "2acb32d039cf6bdf0f61142da700ca09ddae18e09362b92dc4424513ec498579",
             "file": "vencord-accountpanelserverprofile.2acb32d039cf6bdf0f61142da700ca09ddae18e09362b92dc4424513ec498579.json",
             "bytes": 15947
@@ -56,6 +57,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "7a0f22598c8cf1bcda4108d457c3dcb3b0e899732b0f15a2e2b1932e3c7aa94d",
             "file": "vencord-addattachments.7a0f22598c8cf1bcda4108d457c3dcb3b0e899732b0f15a2e2b1932e3c7aa94d.json",
             "bytes": 14290
@@ -82,6 +84,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "9d2c84949cfe4062685ea3698c807d0f2f80eeec15a0e108293e6afe600a3c6b",
             "file": "vencord-alwaysanimate.9d2c84949cfe4062685ea3698c807d0f2f80eeec15a0e108293e6afe600a3c6b.json",
             "bytes": 9737
@@ -108,6 +111,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "96cbd5386b4a744720d6d161cb37dfe1b4703b1bc5377bb6f522e53091c6838a",
             "file": "vencord-alwaysexpandroles.96cbd5386b4a744720d6d161cb37dfe1b4703b1bc5377bb6f522e53091c6838a.json",
             "bytes": 10073
@@ -137,6 +141,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "36a4479d0fb9046c44313adbc37cd194f03e526aa429816a5908e510f2a66820",
             "file": "vencord-alwaystrust.36a4479d0fb9046c44313adbc37cd194f03e526aa429816a5908e510f2a66820.json",
             "bytes": 10358
@@ -163,6 +168,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "96897b8ce6c354046f85b864d870a3df25bfb63cb1efd963e5ef65a93f1960cc",
             "file": "vencord-anonymisefilenames.96897b8ce6c354046f85b864d870a3df25bfb63cb1efd963e5ef65a93f1960cc.json",
             "bytes": 17127
@@ -189,6 +195,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "8f9731c81c307a5ec7aea23d422121b3b5af9c6db129be477870289cfb3f8ebb",
             "file": "vencord-autodndwhileplaying.8f9731c81c307a5ec7aea23d422121b3b5af9c6db129be477870289cfb3f8ebb.json",
             "bytes": 10741
@@ -261,6 +268,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "1259c7d03b6d9bc79bf4c9b59796e5ee288dbda7889af52016c0bd482dc9bb72",
             "file": "vencord-betterfolders.1259c7d03b6d9bc79bf4c9b59796e5ee288dbda7889af52016c0bd482dc9bb72.json",
             "bytes": 24926
@@ -288,6 +296,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "5d57f1b64f5a36c9adfad1d1e088126447d203af7c361667a862676069b5b6d1",
             "file": "vencord-bettergifalttext.5d57f1b64f5a36c9adfad1d1e088126447d203af7c361667a862676069b5b6d1.json",
             "bytes": 9728
@@ -314,6 +323,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "2b957252692142bda254ca3cb8a690a4b85ff8ef455c190b308acbbf6fd4b8a1",
             "file": "vencord-bettergifpicker.2b957252692142bda254ca3cb8a690a4b85ff8ef455c190b308acbbf6fd4b8a1.json",
             "bytes": 9149
@@ -351,6 +361,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "038a646d6f79a75e4f194e56a0b9d29fe48ca20ac1e503beb23204368357a124",
             "file": "vencord-betterrolecontext.038a646d6f79a75e4f194e56a0b9d29fe48ca20ac1e503beb23204368357a124.json",
             "bytes": 22088
@@ -381,6 +392,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "08c5225861689f046cabee6e1fedcdce07debc753e934643792f30279334037f",
             "file": "vencord-betterroledot.08c5225861689f046cabee6e1fedcdce07debc753e934643792f30279334037f.json",
             "bytes": 12281
@@ -406,6 +418,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f24f264a8313fcc7b105cc89734e1d8b23c2b563eaaa337805ec5a5ea609f5b4",
             "file": "vencord-bettersearch.f24f264a8313fcc7b105cc89734e1d8b23c2b563eaaa337805ec5a5ea609f5b4.json",
             "bytes": 11266
@@ -433,6 +446,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "dc5ac63657717ef65139331b2961784968cfe3bb6f515ec4600bd7d5b0cf3a5c",
             "file": "vencord-bettersessions.dc5ac63657717ef65139331b2961784968cfe3bb6f515ec4600bd7d5b0cf3a5c.json",
             "bytes": 35974
@@ -488,6 +502,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "40e2aea230a2e7abed6a6487c9569be1786727fe7031de8e57f5c6b2b6e913bf",
             "file": "vencord-betteruploadbutton.40e2aea230a2e7abed6a6487c9569be1786727fe7031de8e57f5c6b2b6e913bf.json",
             "bytes": 9336
@@ -516,6 +531,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "54ce7ea992869fa02fb212f1eaa368aafda0115c227f41ef333c226896c85000",
             "file": "vencord-biggerstreampreview.54ce7ea992869fa02fb212f1eaa368aafda0115c227f41ef333c226896c85000.json",
             "bytes": 12376
@@ -542,6 +558,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "63b368c3879501bc8e1a4dad8aee315974f7b7dae631a1c5fb5c4ad424a11ba5",
             "file": "vencord-blurnsfw.63b368c3879501bc8e1a4dad8aee315974f7b7dae631a1c5fb5c4ad424a11ba5.json",
             "bytes": 10867
@@ -568,6 +585,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "82f633abbe4d4a1d3e48753c2f09b625313b7f88b9285ce682acc6d349bf1d63",
             "file": "vencord-calltimer.82f633abbe4d4a1d3e48753c2f09b625313b7f88b9285ce682acc6d349bf1d63.json",
             "bytes": 15042
@@ -597,6 +615,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d606d88ec488a3f5793c05e69c99266cc4e93f5bf1ad95eb6559213dc0517e5c",
             "file": "vencord-charactercounter.d606d88ec488a3f5793c05e69c99266cc4e93f5bf1ad95eb6559213dc0517e5c.json",
             "bytes": 15184
@@ -622,6 +641,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "1733df60d42be674906fd79803bd58881cb9c39affe97d87a196c30185517c32",
             "file": "vencord-chatinputbuttonapi.1733df60d42be674906fd79803bd58881cb9c39affe97d87a196c30185517c32.json",
             "bytes": 9178
@@ -654,6 +674,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "44167df6130cb4c33588c6237e3f859bdb05ba1b2b9591f20bf71f16c67cecbd",
             "file": "vencord-clearurls.44167df6130cb4c33588c6237e3f859bdb05ba1b2b9591f20bf71f16c67cecbd.json",
             "bytes": 10183
@@ -680,6 +701,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "24bce0d7fadc5977d7e58de260494b716f0e5df111641bfd9f7a08d9fcecb2ac",
             "file": "vencord-clienttheme.24bce0d7fadc5977d7e58de260494b716f0e5df111641bfd9f7a08d9fcecb2ac.json",
             "bytes": 21892
@@ -706,6 +728,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "e5a4e9d46c00d8fbd4e79aba35f97da1514a258419ab6c8cd3310825c71e8b63",
             "file": "vencord-colorsighted.e5a4e9d46c00d8fbd4e79aba35f97da1514a258419ab6c8cd3310825c71e8b63.json",
             "bytes": 9319
@@ -731,6 +754,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "2336921e9a33b22e9f11852d3c5b8500a4fb8c1633bd82fe55cb6d0370733472",
             "file": "vencord-commandsapi.2336921e9a33b22e9f11852d3c5b8500a4fb8c1633bd82fe55cb6d0370733472.json",
             "bytes": 9448
@@ -784,6 +808,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "7888ceaa5fec27f9db684b44324037f6a2d32fe8826665b308d5949addc57705",
             "file": "vencord-consolejanitor.7888ceaa5fec27f9db684b44324037f6a2d32fe8826665b308d5949addc57705.json",
             "bytes": 17719
@@ -812,6 +837,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "31a11d97e124fb93aa9e7a1e5f546b1cbb5a5457414a8044d3c25d7c5c9b354d",
             "file": "vencord-consoleshortcuts.31a11d97e124fb93aa9e7a1e5f546b1cbb5a5457414a8044d3c25d7c5c9b354d.json",
             "bytes": 20946
@@ -845,6 +871,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "14592e7c19f99af3f702748e1d53e078b8d8941461c3f9c305ca5f9d4076e4ae",
             "file": "vencord-contextmenuapi.14592e7c19f99af3f702748e1d53e078b8d8941461c3f9c305ca5f9d4076e4ae.json",
             "bytes": 14377
@@ -877,6 +904,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "80954aa6bd7021ed2bb21af856ec54d7a140faf1f4206657670174464ce89849",
             "file": "vencord-copyemojimarkdown.80954aa6bd7021ed2bb21af856ec54d7a140faf1f4206657670174464ce89849.json",
             "bytes": 12847
@@ -906,6 +934,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "2f30c86839d734639c226b598227234b4441a8ced49d4e11b30cd5a42159c860",
             "file": "vencord-copyfilecontents.2f30c86839d734639c226b598227234b4441a8ced49d4e11b30cd5a42159c860.json",
             "bytes": 16110
@@ -934,6 +963,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "c2225d9c89eb241f8e1a6125e524c8b5fb57be1490e7a6a6e607fdb892da9e72",
             "file": "vencord-copyuserurls.c2225d9c89eb241f8e1a6125e524c8b5fb57be1490e7a6a6e607fdb892da9e72.json",
             "bytes": 12324
@@ -960,9 +990,10 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
-            "sha256": "6fec25f18785b7b363d0fbb1dd88c493b6713959f32470b85922deaabe24adb9",
-            "file": "vencord-crashhandler.6fec25f18785b7b363d0fbb1dd88c493b6713959f32470b85922deaabe24adb9.json",
-            "bytes": 47173
+            "hotReload": false,
+            "sha256": "4e842fc1e6f24c0c0a2001b88d57483973d86ac1703d48555f1f6602cc410923",
+            "file": "vencord-crashhandler.4e842fc1e6f24c0c0a2001b88d57483973d86ac1703d48555f1f6602cc410923.json",
+            "bytes": 47200
         },
         {
             "id": "vencord-customcommands",
@@ -993,6 +1024,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "e994a1bb76ced40f79cb5f0b51e3ea22da3dbb84c887c2a4f9976068b62c6683",
             "file": "vencord-customcommands.e994a1bb76ced40f79cb5f0b51e3ea22da3dbb84c887c2a4f9976068b62c6683.json",
             "bytes": 27176
@@ -1019,6 +1051,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d9cf093d1246e41364d7598c5bbd754b298b6321b24d4a67f26cf21322b8272e",
             "file": "vencord-customidle.d9cf093d1246e41364d7598c5bbd754b298b6321b24d4a67f26cf21322b8272e.json",
             "bytes": 11104
@@ -1059,6 +1092,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "8030449c9fc5648d45c9c87f904985aa9d0690b3180808ba2a5bacdcf3fba758",
             "file": "vencord-customrpc.8030449c9fc5648d45c9c87f904985aa9d0690b3180808ba2a5bacdcf3fba758.json",
             "bytes": 29659
@@ -1085,6 +1119,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "75459aed41c9bc60fa13b3d9de2a237050b565e79379522a624f4181502ce8a1",
             "file": "vencord-dearrow.75459aed41c9bc60fa13b3d9de2a237050b565e79379522a624f4181502ce8a1.json",
             "bytes": 17111
@@ -1111,6 +1146,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "36dec50ca48251f0d5390a2db88895732056dbb10794dd07821bc5c3f8c3ee93",
             "file": "vencord-decor.36dec50ca48251f0d5390a2db88895732056dbb10794dd07821bc5c3f8c3ee93.json",
             "bytes": 46464
@@ -1160,6 +1196,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "c6b41ae2322b01917498f06016d5214b5ab2eb06143bc18c4f45ee34cb62e837",
             "file": "vencord-directfiledownload.c6b41ae2322b01917498f06016d5214b5ab2eb06143bc18c4f45ee34cb62e837.json",
             "bytes": 18691
@@ -1186,6 +1223,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "886d0662bbacae0d3ba4eff9764d4612c0c7e810f10c46a93bd1ec97abcbb9fd",
             "file": "vencord-disablecallidle.886d0662bbacae0d3ba4eff9764d4612c0c7e810f10c46a93bd1ec97abcbb9fd.json",
             "bytes": 9325
@@ -1235,6 +1273,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "92f089fbc9ce2143437a5ba84aca16efc1e04c89a3b512097277749ae2f3917f",
             "file": "vencord-dontroundmytimestamps.92f089fbc9ce2143437a5ba84aca16efc1e04c89a3b512097277749ae2f3917f.json",
             "bytes": 9920
@@ -1264,6 +1303,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "0092e6465cb02c9320ed2c687bc208131d46b88482dfb6a03bbdecca634544ef",
             "file": "vencord-dynamicimagemodalapi.0092e6465cb02c9320ed2c687bc208131d46b88482dfb6a03bbdecca634544ef.json",
             "bytes": 9169
@@ -1306,6 +1346,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "dfe640a255814976dd6319d965ea068ca1fc2c488ca529256f27f49202b5c3ea",
             "file": "vencord-experiments.dfe640a255814976dd6319d965ea068ca1fc2c488ca529256f27f49202b5c3ea.json",
             "bytes": 16474
@@ -1346,6 +1387,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "7c418da70cab8294d4d8e242630cece8a99c0ba7b71cf0c6efa62f8747350d9b",
             "file": "vencord-expressionmanager.7c418da70cab8294d4d8e242630cece8a99c0ba7b71cf0c6efa62f8747350d9b.json",
             "bytes": 29447
@@ -1372,6 +1414,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "eaa0b69c06ca403596a1d93b7116873c89b10afddaa9a3b831cc3166d8259536",
             "file": "vencord-f8break.eaa0b69c06ca403596a1d93b7116873c89b10afddaa9a3b831cc3166d8259536.json",
             "bytes": 9165
@@ -1430,6 +1473,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "eab745dff6a8f1b3fd0db212e633d877f170188df6ecd7a07123fe99bcdf2b25",
             "file": "vencord-fakenitro.eab745dff6a8f1b3fd0db212e633d877f170188df6ecd7a07123fe99bcdf2b25.json",
             "bytes": 40520
@@ -1460,6 +1504,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "afe13b99836d0a7a99aa6fa4e18571f93bf1387a7488fe7ce26096d3faf26ead",
             "file": "vencord-fakeprofilethemes.afe13b99836d0a7a99aa6fa4e18571f93bf1387a7488fe7ce26096d3faf26ead.json",
             "bytes": 22825
@@ -1490,6 +1535,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "3b3dbb25b613993e0815d0034c08b2495324be7c32a93e5c416b5a2a25439ea7",
             "file": "vencord-favoriteemojifirst.3b3dbb25b613993e0815d0034c08b2495324be7c32a93e5c416b5a2a25439ea7.json",
             "bytes": 10557
@@ -1515,6 +1561,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "7bbd191a05c6e5c443d79b3b1a8419ffa3c8b7aa915324d900bb14a5dee8ca00",
             "file": "vencord-fixcodeblockgap.7bbd191a05c6e5c443d79b3b1a8419ffa3c8b7aa915324d900bb14a5dee8ca00.json",
             "bytes": 9235
@@ -1540,6 +1587,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f6d8b2b61d414fe2f61f9c1286da45c71b3d717a161bf9773fb2d1e6bc779e48",
             "file": "vencord-fixdiscordcss.f6d8b2b61d414fe2f61f9c1286da45c71b3d717a161bf9773fb2d1e6bc779e48.json",
             "bytes": 10273
@@ -1570,6 +1618,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "95259fa1123a10bfac7f42bb25dfc63b3aad221567d4c7e58c69391ec077c588",
             "file": "vencord-fiximagesquality.95259fa1123a10bfac7f42bb25dfc63b3aad221567d4c7e58c69391ec077c588.json",
             "bytes": 14287
@@ -1596,6 +1645,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "fd06fef6c564a111fe21254e489310c4b2445d77455e48eab53ac20101278e92",
             "file": "vencord-fixspotifyembeds.fd06fef6c564a111fe21254e489310c4b2445d77455e48eab53ac20101278e92.json",
             "bytes": 12089
@@ -1622,6 +1672,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "4bcd74ca94bb758bd05e8b59fb67a70119124642848dd73004a79794c2cd7813",
             "file": "vencord-fixyoutubeembeds.4bcd74ca94bb758bd05e8b59fb67a70119124642848dd73004a79794c2cd7813.json",
             "bytes": 10570
@@ -1653,6 +1704,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "5f873dbb4624522c468fd3e452bdfaef607d34ea2c4ff1b2b6cc15e5cdd78b3c",
             "file": "vencord-forceownercrown.5f873dbb4624522c468fd3e452bdfaef607d34ea2c4ff1b2b6cc15e5cdd78b3c.json",
             "bytes": 10134
@@ -1685,6 +1737,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "4b0bc3bf1af5a2fb8d948ee81d82670acb0ec24e1351d8a7c9761ec1cee328e3",
             "file": "vencord-friendinvites.4b0bc3bf1af5a2fb8d948ee81d82670acb0ec24e1351d8a7c9761ec1cee328e3.json",
             "bytes": 11302
@@ -1716,6 +1769,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "8120a55c621de95750f6e9f43f2d74d0038039d3f1ef56fac29cf6bdd9587a9c",
             "file": "vencord-fullsearchcontext.8120a55c621de95750f6e9f43f2d74d0038039d3f1ef56fac29cf6bdd9587a9c.json",
             "bytes": 15954
@@ -1749,6 +1803,7 @@
             "available": false,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "57ed37695e6606df01a66a670e9e90189923765401491efaa9b67f94e53a0b90",
             "file": "vencord-gameactivitytoggle.57ed37695e6606df01a66a670e9e90189923765401491efaa9b67f94e53a0b90.json",
             "bytes": 17428,
@@ -1776,6 +1831,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "4e4723545001d546a540bbc31783a18e5af0b7b4aa276c5d7d121d3a0c00c9d2",
             "file": "vencord-gifpaste.4e4723545001d546a540bbc31783a18e5af0b7b4aa276c5d7d121d3a0c00c9d2.json",
             "bytes": 11269
@@ -1807,6 +1863,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "3a5ba00191dfc91369eb5e31a209b6094c1cf585000e724649c31ecd790096a5",
             "file": "vencord-gifproviderswitcher.3a5ba00191dfc91369eb5e31a209b6094c1cf585000e724649c31ecd790096a5.json",
             "bytes": 21513
@@ -1833,6 +1890,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "332fceae29a8446ff88db85ce87db4821024aca4d5c094a7ef6d967252c3c314",
             "file": "vencord-greetstickerpicker.332fceae29a8446ff88db85ce87db4821024aca4d5c094a7ef6d967252c3c314.json",
             "bytes": 12451
@@ -1866,6 +1924,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "b3e78f77c0c5ec270ba7ac87b36702c76c1cda99d3d91a694872da83c44ee2a4",
             "file": "vencord-hidemedia.b3e78f77c0c5ec270ba7ac87b36702c76c1cda99d3d91a694872da83c44ee2a4.json",
             "bytes": 13477
@@ -1901,6 +1960,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "f317cc9a1b9aebfdc89c597c7c4c5dd642f2677c8aba11387320f80a50076bc8",
             "file": "vencord-ignoreactivities.f317cc9a1b9aebfdc89c597c7c4c5dd642f2677c8aba11387320f80a50076bc8.json",
             "bytes": 26785
@@ -1931,6 +1991,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "49b45b90400b2ddeb4cfa9604e28e3995d4ae37b2f8f4fa47c0d45720e8b7c3e",
             "file": "vencord-ilovespam.49b45b90400b2ddeb4cfa9604e28e3995d4ae37b2f8f4fa47c0d45720e8b7c3e.json",
             "bytes": 9150
@@ -1957,6 +2018,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "f03f3969a4b3db019c73e77c0dd9f49759480748ab28a2fe52d8921b429acc3c",
             "file": "vencord-imagefilename.f03f3969a4b3db019c73e77c0dd9f49759480748ab28a2fe52d8921b429acc3c.json",
             "bytes": 10411
@@ -1987,6 +2049,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f1fcc0cc779621d3ebf5fd1dc82892cb2aef463dfbcb8d5a915610f456f16dab",
             "file": "vencord-imagelink.f1fcc0cc779621d3ebf5fd1dc82892cb2aef463dfbcb8d5a915610f456f16dab.json",
             "bytes": 9160
@@ -2015,6 +2078,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "97cd6dcf497fe1803c85deb2a5f61a65cd6e6bf0a7027f68353089c658b3b2c9",
             "file": "vencord-imagezoom.97cd6dcf497fe1803c85deb2a5f61a65cd6e6bf0a7027f68353089c658b3b2c9.json",
             "bytes": 21587
@@ -2041,6 +2105,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "7f22666a12e020ead0a4f08fe45d20741aa968de6982cf2e70560496bd954aa0",
             "file": "vencord-implicitrelationships.7f22666a12e020ead0a4f08fe45d20741aa968de6982cf2e70560496bd954aa0.json",
             "bytes": 13384
@@ -2071,6 +2136,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "78e4bac22c19336fd9f518dbc8e8e46263f690b70535d488f86ee38a6c786646",
             "file": "vencord-irccolors.78e4bac22c19336fd9f518dbc8e8e46263f690b70535d488f86ee38a6c786646.json",
             "bytes": 14375
@@ -2097,6 +2163,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "a1e5632523595cd64f92cdb718e6121ca7b8251a9376ab4764b6fe6b915cdcc6",
             "file": "vencord-jumptotop.a1e5632523595cd64f92cdb718e6121ca7b8251a9376ab4764b6fe6b915cdcc6.json",
             "bytes": 17606
@@ -2123,6 +2190,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "4d75733686d5aed651e16e3608fe5e59c661333782d8ef35d5744749b5f6da47",
             "file": "vencord-keepcurrentchannel.4d75733686d5aed651e16e3608fe5e59c661333782d8ef35d5744749b5f6da47.json",
             "bytes": 10666
@@ -2158,6 +2226,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "bc76d34fe00bf70fffe1c8a111aa8a45b95c9c5720b9038847961b31f37704e6",
             "file": "vencord-loadingquotes.bc76d34fe00bf70fffe1c8a111aa8a45b95c9c5720b9038847961b31f37704e6.json",
             "bytes": 13323
@@ -2192,6 +2261,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "e3611d9dc3b8ef9e2a3a93d5060a13fe95b1d2540526f9b71a662fa613f6dca7",
             "file": "vencord-membercount.e3611d9dc3b8ef9e2a3a93d5060a13fe95b1d2540526f9b71a662fa613f6dca7.json",
             "bytes": 21428
@@ -2221,6 +2291,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "94b7a358016ba69e76a8a4454e521edaae00c325f7ec433e094fe38567b10b2b",
             "file": "vencord-memberlistdecoratorsapi.94b7a358016ba69e76a8a4454e521edaae00c325f7ec433e094fe38567b10b2b.json",
             "bytes": 10066
@@ -2251,6 +2322,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "b8b52322e4ac08957823108850916bb409af8213d6ac7853634ce8ceac4e33b6",
             "file": "vencord-mentionavatars.b8b52322e4ac08957823108850916bb409af8213d6ac7853634ce8ceac4e33b6.json",
             "bytes": 16094
@@ -2276,6 +2348,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f8e5c21a990f3ae5b2e24ca1f79cdd3ee57fe8888fcce50c8e46476f65a8d89b",
             "file": "vencord-messageaccessoriesapi.f8e5c21a990f3ae5b2e24ca1f79cdd3ee57fe8888fcce50c8e46476f65a8d89b.json",
             "bytes": 9224
@@ -2305,6 +2378,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "4ef9d421275e522066ff72496e23e0cf257a55f1e93243c67b82ee02bc490c80",
             "file": "vencord-messageclickactions.4ef9d421275e522066ff72496e23e0cf257a55f1e93243c67b82ee02bc490c80.json",
             "bytes": 12095
@@ -2330,6 +2404,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "572efb9cc114a29a061a592a194a0e8c4b30b6f9a0ecefafa604fcab6492eafb",
             "file": "vencord-messagedecorationsapi.572efb9cc114a29a061a592a194a0e8c4b30b6f9a0ecefafa604fcab6492eafb.json",
             "bytes": 9944
@@ -2363,6 +2438,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "df20b99fa90c90bef93576c2f5eadc8618824745cce261f206a50e865aff3c8f",
             "file": "vencord-messageeventsapi.df20b99fa90c90bef93576c2f5eadc8618824745cce261f206a50e865aff3c8f.json",
             "bytes": 9986
@@ -2389,6 +2465,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "ef9a27b27146b23a626c73175b440c14197abf0ed7e42f71e07508d4866088e3",
             "file": "vencord-messagelatency.ef9a27b27146b23a626c73175b440c14197abf0ed7e42f71e07508d4866088e3.json",
             "bytes": 16765
@@ -2427,6 +2504,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "7e57fd27687bc95af522eda4eb7abb291d77275f9057ddf7dcb741bfde2a3bf3",
             "file": "vencord-messagelinkembeds.7e57fd27687bc95af522eda4eb7abb291d77275f9057ddf7dcb741bfde2a3bf3.json",
             "bytes": 23778
@@ -2481,6 +2559,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "764d3d999f9bf9c99b8836c572845d95efd0ab29312cb19115f2071d0e5241e6",
             "file": "vencord-messagelogger.764d3d999f9bf9c99b8836c572845d95efd0ab29312cb19115f2071d0e5241e6.json",
             "bytes": 32092
@@ -2514,6 +2593,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "61fcb1c30b504029fb5e30b47ffd542235e52b447476fe81d038beebe2f10b62",
             "file": "vencord-messagepopoverapi.61fcb1c30b504029fb5e30b47ffd542235e52b447476fe81d038beebe2f10b62.json",
             "bytes": 9363
@@ -2539,6 +2619,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "cf48d811216892c2b2505b81b991545784fe35cc23554d8b0c17728e47b8315f",
             "file": "vencord-messageupdaterapi.cf48d811216892c2b2505b81b991545784fe35cc23554d8b0c17728e47b8315f.json",
             "bytes": 9104
@@ -2567,6 +2648,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "333b49280df7a7bc8623d613edc9c957f2f33fec387c36f289e86a159cbb6a37",
             "file": "vencord-morequickreactions.333b49280df7a7bc8623d613edc9c957f2f33fec387c36f289e86a159cbb6a37.json",
             "bytes": 10198
@@ -2613,6 +2695,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "7979d288835976cd0b3c1ef2fcbb9fb7d631f8a47be74a06cfc460350f402602",
             "file": "vencord-musicrichpresence.7979d288835976cd0b3c1ef2fcbb9fb7d631f8a47be74a06cfc460350f402602.json",
             "bytes": 32358
@@ -2641,6 +2724,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "0fa18b4afc4dc22382bd35b25f041443cb2131c868cb8dbfff761a304b005333",
             "file": "vencord-mutedserversactivitybadge.0fa18b4afc4dc22382bd35b25f041443cb2131c868cb8dbfff761a304b005333.json",
             "bytes": 9211
@@ -2667,6 +2751,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "e38d3c6f049f54cb57317803a41c2d9448397d771565e55c6e18a35ff6c02659",
             "file": "vencord-mutualgroupdms.e38d3c6f049f54cb57317803a41c2d9448397d771565e55c6e18a35ff6c02659.json",
             "bytes": 17858
@@ -2711,6 +2796,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "915fe6a744db6f1ec05175684f1b9066ec5a99e80989ba414173daba7c69386a",
             "file": "vencord-newguildsettings.915fe6a744db6f1ec05175684f1b9066ec5a99e80989ba414173daba7c69386a.json",
             "bytes": 14938
@@ -2745,6 +2831,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "225410c5f546fe9d33389fb4f5b702d466623d639163413677e141dfb369efdc",
             "file": "vencord-noblockedmessages.225410c5f546fe9d33389fb4f5b702d466623d639163413677e141dfb369efdc.json",
             "bytes": 15059
@@ -2771,6 +2858,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "4a7a5dadd755dc2a8b44c9f869d4c2abac16ef316e5c9d8ef1634659ab97bbd4",
             "file": "vencord-nodevtoolswarning.4a7a5dadd755dc2a8b44c9f869d4c2abac16ef316e5c9d8ef1634659ab97bbd4.json",
             "bytes": 9266
@@ -2796,6 +2884,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "dd072d0dc74f39f477a68da4275f688ec65165f8cc0e35f53c5d6a774d498af4",
             "file": "vencord-nof1.dd072d0dc74f39f477a68da4275f688ec65165f8cc0e35f53c5d6a774d498af4.json",
             "bytes": 9063
@@ -2822,6 +2911,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "1b030832c8b947568d2ad188d4efc6877aa92b516686c52eb0398c07d6e3d3fc",
             "file": "vencord-nomaskedurlpaste.1b030832c8b947568d2ad188d4efc6877aa92b516686c52eb0398c07d6e3d3fc.json",
             "bytes": 9203
@@ -2847,6 +2937,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "36c2fffd15d6287d8e25def1dcbeca3ebde45048b693b5ac597fed75fa0d0b91",
             "file": "vencord-nomiddleclickpaste.36c2fffd15d6287d8e25def1dcbeca3ebde45048b693b5ac597fed75fa0d0b91.json",
             "bytes": 9146
@@ -2874,6 +2965,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "7e7b772a64e8b95a50b77600b1d9e7446f5a29a0687f5fa7d2350304ba3dc3d0",
             "file": "vencord-nomosaic.7e7b772a64e8b95a50b77600b1d9e7446f5a29a0687f5fa7d2350304ba3dc3d0.json",
             "bytes": 10471
@@ -2900,6 +2992,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "d9fcb5a4c63b61d2e48b3169a23aacd60b123a2f4bb7a9a719a3784251d07447",
             "file": "vencord-noonboardingdelay.d9fcb5a4c63b61d2e48b3169a23aacd60b123a2f4bb7a9a719a3784251d07447.json",
             "bytes": 9124
@@ -2926,6 +3019,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "8577a50b40ad1c6b81b6493560dac77ed71880e440288321aeda333ee3b0e5c3",
             "file": "vencord-nopendingcount.8577a50b40ad1c6b81b6493560dac77ed71880e440288321aeda333ee3b0e5c3.json",
             "bytes": 11087
@@ -2951,6 +3045,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "348f7b644dc4068e362e12892371be5079e2dd41677ec3b35295794832a7c6a0",
             "file": "vencord-noprofilethemes.348f7b644dc4068e362e12892371be5079e2dd41677ec3b35295794832a7c6a0.json",
             "bytes": 9980
@@ -2989,6 +3084,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "2f3688cc5fdb63ffc41bbdf2304df9a9c05dc2d9e2676ced9c4337bbe3a6e214",
             "file": "vencord-noreplymention.2f3688cc5fdb63ffc41bbdf2304df9a9c05dc2d9e2676ced9c4337bbe3a6e214.json",
             "bytes": 11054
@@ -3015,6 +3111,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "3e15327b4172b3dafec482f68f583a00747d5099ff3b8df9cc6eaec0280bade7",
             "file": "vencord-noserveremojis.3e15327b4172b3dafec482f68f583a00747d5099ff3b8df9cc6eaec0280bade7.json",
             "bytes": 10540
@@ -3041,6 +3138,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "6311b60e011219ccc2dd4ed6bfd7c93f9f37ca46e8862b026603dbb1f3fc9e76",
             "file": "vencord-nosystembadge.6311b60e011219ccc2dd4ed6bfd7c93f9f37ca46e8862b026603dbb1f3fc9e76.json",
             "bytes": 9219
@@ -3066,6 +3164,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "5bc3aff0679b8ff559b9312a318098e1cb360e5fea8b58f5ae9c619d6060a9ae",
             "file": "vencord-noticesapi.5bc3aff0679b8ff559b9312a318098e1cb360e5fea8b58f5ae9c619d6060a9ae.json",
             "bytes": 9330
@@ -3092,6 +3191,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "73bcf09590d775673d39284a729b332356bcea2f83cdb100667fffa87fd4c2fa",
             "file": "vencord-notificationvolume.73bcf09590d775673d39284a729b332356bcea2f83cdb100667fffa87fd4c2fa.json",
             "bytes": 10154
@@ -3133,6 +3233,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "f5db58889ae0e9b0a73088103614eef82c73d4227b9fd72508168dfc41ff9b01",
             "file": "vencord-notrack.f5db58889ae0e9b0a73088103614eef82c73d4227b9fd72508168dfc41ff9b01.json",
             "bytes": 13518
@@ -3158,6 +3259,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "3fba6007befe758f322c0f29fadb687e4159878a470897f48af1d0f2c9827ece",
             "file": "vencord-notypinganimation.3fba6007befe758f322c0f29fadb687e4159878a470897f48af1d0f2c9827ece.json",
             "bytes": 9117
@@ -3183,6 +3285,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "ae33eef93976805253242de22e508cda633ebf4551d6d1acf5ea3ca78ecd9a1b",
             "file": "vencord-nounblocktojump.ae33eef93976805253242de22e508cda633ebf4551d6d1acf5ea3ca78ecd9a1b.json",
             "bytes": 9193
@@ -3213,6 +3316,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "1c716d5542f622d7cbcbd974cd83645050e8a1ef43ea6608547ea3c2a0a1017e",
             "file": "vencord-oneko.1c716d5542f622d7cbcbd974cd83645050e8a1ef43ea6608547ea3c2a0a1017e.json",
             "bytes": 9341
@@ -3239,6 +3343,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d45a8a890d0b79fc599f449234dde9a6b905740f11038b9a8f7cac9874038f3d",
             "file": "vencord-onepingperdm.d45a8a890d0b79fc599f449234dde9a6b905740f11038b9a8f7cac9874038f3d.json",
             "bytes": 11138
@@ -3268,6 +3373,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "6c2ef44c2e64ae4635e7c27605e4d600ec0246eb6d1bdb20078e30d36bd37683",
             "file": "vencord-openinapp.6c2ef44c2e64ae4635e7c27605e4d600ec0246eb6d1bdb20078e30d36bd37683.json",
             "bytes": 14193
@@ -3295,6 +3401,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d41fb793f179d7752f77efc7f80ef94c624cb70c5fa01f801d57807d013ac8fb",
             "file": "vencord-overrideforumdefaults.d41fb793f179d7752f77efc7f80ef94c624cb70c5fa01f801d57807d013ac8fb.json",
             "bytes": 10521
@@ -3324,6 +3431,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f5cf29b29fafded933adb340d802f068b45eb3d3460fe96891caa98f12e041c9",
             "file": "vencord-pauseinvitesforever.f5cf29b29fafded933adb340d802f068b45eb3d3460fe96891caa98f12e041c9.json",
             "bytes": 17698
@@ -3350,6 +3458,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d6dc61f48178b97f729d65670bf925833e3083678e81eea79f41233143b7ab87",
             "file": "vencord-permissionfreewill.d6dc61f48178b97f729d65670bf925833e3083678e81eea79f41233143b7ab87.json",
             "bytes": 10670
@@ -3384,6 +3493,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "d03e7ac4e5a89d0ac7ae61bd8a6f46d166b20b89b2aaed56083324214aa7652f",
             "file": "vencord-permissionsviewer.d03e7ac4e5a89d0ac7ae61bd8a6f46d166b20b89b2aaed56083324214aa7652f.json",
             "bytes": 39521
@@ -3416,6 +3526,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "7e07b7b425feda538bbbb6d24a8c79ea48a7b05750cd6ebd34836a6b74c0c01e",
             "file": "vencord-petpet.7e07b7b425feda538bbbb6d24a8c79ea48a7b05750cd6ebd34836a6b74c0c01e.json",
             "bytes": 23678
@@ -3442,6 +3553,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "2aec878c876a637dd365959477d8c936c82eaaf8539de40f2eebe3c2c08aa5a1",
             "file": "vencord-pictureinpicture.2aec878c876a637dd365959477d8c936c82eaaf8539de40f2eebe3c2c08aa5a1.json",
             "bytes": 15192
@@ -3472,6 +3584,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "ed1b0bfc61a9aa03667eb12dd702d0ce5e8668bdfb9b995c37177222e36fc2eb",
             "file": "vencord-pindms.ed1b0bfc61a9aa03667eb12dd702d0ce5e8668bdfb9b995c37177222e36fc2eb.json",
             "bytes": 24968
@@ -3498,6 +3611,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "30dfbf2775ab7d37ccaf0bb2c74df7350994316ff91f0f983c50ceac1fa6ea31",
             "file": "vencord-plainfoldericon.30dfbf2775ab7d37ccaf0bb2c74df7350994316ff91f0f983c50ceac1fa6ea31.json",
             "bytes": 9400
@@ -3538,6 +3652,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "49223865e7e7f842804c8e3cb14f78628f0136caeb8a6af57391a34fcad91ed4",
             "file": "vencord-platformindicators.49223865e7e7f842804c8e3cb14f78628f0136caeb8a6af57391a34fcad91ed4.json",
             "bytes": 16428
@@ -3566,6 +3681,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "cf2d49a7d4e3f7dd24e3edcfccbd65e3ec6ce8e243a3665c390f2a9019ea9d6f",
             "file": "vencord-previewmessage.cf2d49a7d4e3f7dd24e3edcfccbd65e3ec6ce8e243a3665c390f2a9019ea9d6f.json",
             "bytes": 13383
@@ -3594,6 +3710,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "0f8cce940a2a5e94c2d7016475d59e290959061496a3f9150216ab70a7f9150a",
             "file": "vencord-quickmention.0f8cce940a2a5e94c2d7016475d59e290959061496a3f9150216ab70a7f9150a.json",
             "bytes": 12206
@@ -3631,6 +3748,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "044eee11b0f7da3f2bf6359a92a96643eac77bf661ed4122a0005dc250347977",
             "file": "vencord-quickreply.044eee11b0f7da3f2bf6359a92a96643eac77bf661ed4122a0005dc250347977.json",
             "bytes": 13207
@@ -3660,6 +3778,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "44b8ea180acb36624d116ac4b59083e73d9bc76e5a19ac066c878d0640cadb41",
             "file": "vencord-reacterrordecoder.44b8ea180acb36624d116ac4b59083e73d9bc76e5a19ac066c878d0640cadb41.json",
             "bytes": 10392
@@ -3688,6 +3807,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "ef1fab2914b3a575b6b8358f8ef93896c8085b566e4264e89edb28e3a797de34",
             "file": "vencord-readallnotificationsbutton.ef1fab2914b3a575b6b8358f8ef93896c8085b566e4264e89edb28e3a797de34.json",
             "bytes": 19592
@@ -3714,6 +3834,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "9018321926272336dd3b310c706e9c54cbbf96693379a12aeb0636bce2d3e117",
             "file": "vencord-relationshipnotifier.9018321926272336dd3b310c706e9c54cbbf96693379a12aeb0636bce2d3e117.json",
             "bytes": 16321
@@ -3746,6 +3867,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "9a5fa69e7f3dd6ce629e6e51c14780db2c80ffdde263d5396cb74d18bd1a2e54",
             "file": "vencord-replacegooglesearch.9a5fa69e7f3dd6ce629e6e51c14780db2c80ffdde263d5396cb74d18bd1a2e54.json",
             "bytes": 13688
@@ -3772,6 +3894,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "328f89e3eee52b4a4766a2b2676171c18394187dbec572b6f69293e4cd0b48ac",
             "file": "vencord-replytimestamp.328f89e3eee52b4a4766a2b2676171c18394187dbec572b6f69293e4cd0b48ac.json",
             "bytes": 14215
@@ -3800,6 +3923,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "6339702fd42e3088909fc7ad9070d60f38500b16303fa7a82097680d8d8ad97b",
             "file": "vencord-revealallspoilers.6339702fd42e3088909fc7ad9070d60f38500b16303fa7a82097680d8d8ad97b.json",
             "bytes": 10365
@@ -3832,6 +3956,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "ef9f977ceb907458b16da6db583d87e4f003ff4786282d999f94ab08b63e7cea",
             "file": "vencord-reverseimagesearch.ef9f977ceb907458b16da6db583d87e4f003ff4786282d999f94ab08b63e7cea.json",
             "bytes": 13569
@@ -3864,6 +3989,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "2abca4bf37213676766acbfb5b102e83b716958bddebdc7e7adcc7ce0cd157bd",
             "file": "vencord-reviewdb.2abca4bf37213676766acbfb5b102e83b716958bddebdc7e7adcc7ce0cd157bd.json",
             "bytes": 45434
@@ -3906,6 +4032,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "5f3bf35b66776678867e7cb0c8b97ed24323fd7526423ae019631e64b95f20ed",
             "file": "vencord-rolecoloreverywhere.5f3bf35b66776678867e7cb0c8b97ed24323fd7526423ae019631e64b95f20ed.json",
             "bytes": 15787
@@ -3940,6 +4067,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "4ff593206be1f6e431708eca71bdedb8fbfe851edaa188c96b27102046407e22",
             "file": "vencord-secretringtoneenabler.4ff593206be1f6e431708eca71bdedb8fbfe851edaa188c96b27102046407e22.json",
             "bytes": 10206
@@ -3977,6 +4105,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "1c7000e804f795f1b5ed6b33a03aea251211f1dfe64fe299193f9aa61f515050",
             "file": "vencord-sendtimestamps.1c7000e804f795f1b5ed6b33a03aea251211f1dfe64fe299193f9aa61f515050.json",
             "bytes": 21824
@@ -4010,6 +4139,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "2c69a5034b83e6055e7dadf0495a26d8d2ea2f0b479e6a6261d636b860d15660",
             "file": "vencord-serverinfo.2c69a5034b83e6055e7dadf0495a26d8d2ea2f0b479e6a6261d636b860d15660.json",
             "bytes": 19990
@@ -4035,6 +4165,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "26707ab098baad2523003e75651a1b4b175bbd8d40904fa6a68b2a9ab77332c4",
             "file": "vencord-serverlistapi.26707ab098baad2523003e75651a1b4b175bbd8d40904fa6a68b2a9ab77332c4.json",
             "bytes": 9492
@@ -4063,6 +4194,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "02a402aba0444245067fe0c18c89d8541cb3899be5aea8a9001a21902f941d91",
             "file": "vencord-serverlistindicators.02a402aba0444245067fe0c18c89d8541cb3899be5aea8a9001a21902f941d91.json",
             "bytes": 15114
@@ -4116,6 +4248,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "4ce91765715aae5a65c3ecc31504fe5613469c4bacfc3799d4ab1675fc74d782",
             "file": "vencord-shikicodeblocks.4ce91765715aae5a65c3ecc31504fe5613469c4bacfc3799d4ab1675fc74d782.json",
             "bytes": 36449
@@ -4142,6 +4275,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "5af92d553a135c6cb59e41cd91b5e2dd4ac810a25629d6768c6c4b6760ae8fb9",
             "file": "vencord-showallmessagebuttons.5af92d553a135c6cb59e41cd91b5e2dd4ac810a25629d6768c6c4b6760ae8fb9.json",
             "bytes": 9208
@@ -4170,6 +4304,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "775f0be78c7450dc16e877ac4a5f7bc55663ed855ce7bfe03c75f908e81b0bcf",
             "file": "vencord-showconnections.775f0be78c7450dc16e877ac4a5f7bc55663ed855ce7bfe03c75f908e81b0bcf.json",
             "bytes": 21276
@@ -4247,6 +4382,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "a315d0b466d5594e1f1962b7a76a4e10841861b335db11ab370af56305ae18d0",
             "file": "vencord-showhiddenthings.a315d0b466d5594e1f1962b7a76a4e10841861b335db11ab370af56305ae18d0.json",
             "bytes": 12140
@@ -4281,6 +4417,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "e0f4bb1c1b712f6678b1fbaa2a44a2e92fb06a4e632e95cd7329055573d43365",
             "file": "vencord-showmeyourname.e0f4bb1c1b712f6678b1fbaa2a44a2e92fb06a4e632e95cd7329055573d43365.json",
             "bytes": 15465
@@ -4311,6 +4448,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "5649b15e0014f19a76179d75b2f71b03d765ca2f145be4a53512abe9558c7d1a",
             "file": "vencord-showtimeoutduration.5649b15e0014f19a76179d75b2f71b03d765ca2f145be4a53512abe9558c7d1a.json",
             "bytes": 19397
@@ -4343,6 +4481,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "ad71043dc4f14451a35ccfa7162f5dae4d7cd011f74ec33abfad84102c2bf129",
             "file": "vencord-silentmessagetoggle.ad71043dc4f14451a35ccfa7162f5dae4d7cd011f74ec33abfad84102c2bf129.json",
             "bytes": 11760
@@ -4381,6 +4520,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "69342c57274315f03b82366d78654c96aaf475eeb4b81312e2ec9bcde5046eb5",
             "file": "vencord-silenttyping.69342c57274315f03b82366d78654c96aaf475eeb4b81312e2ec9bcde5046eb5.json",
             "bytes": 14698
@@ -4407,6 +4547,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "db0e2b1be3b8db38440a13af741d1f591cbf5d5e0f51c2d77770de096efb2e4f",
             "file": "vencord-sortfriendrequests.db0e2b1be3b8db38440a13af741d1f591cbf5d5e0f51c2d77770de096efb2e4f.json",
             "bytes": 15353
@@ -4451,6 +4592,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "941b5d5921e28214ed8e0b89d723e909cda1329432d1ca9ff88fdd1e08423207",
             "file": "vencord-spotifycontrols.941b5d5921e28214ed8e0b89d723e909cda1329432d1ca9ff88fdd1e08423207.json",
             "bytes": 32275
@@ -4482,6 +4624,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "3c3b9b862accbb777ac44c104d9b22ca82ac412e31a88ef3304582e9f7f5d474",
             "file": "vencord-spotifycrack.3c3b9b862accbb777ac44c104d9b22ca82ac412e31a88ef3304582e9f7f5d474.json",
             "bytes": 10628
@@ -4510,6 +4653,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "4c522ee82abc93b1e6254f75183473c7f72026f27408b294b35e719802eb2b59",
             "file": "vencord-spotifysharecommands.4c522ee82abc93b1e6254f75183473c7f72026f27408b294b35e719802eb2b59.json",
             "bytes": 12031
@@ -4537,6 +4681,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "fea168341f43c8d8f90876b914574caf9aa7a099629ce85cbef9d95af38b3377",
             "file": "vencord-startuptimings.fea168341f43c8d8f90876b914574caf9aa7a099629ce85cbef9d95af38b3377.json",
             "bytes": 17179
@@ -4563,6 +4708,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "34ce7ad7d76aa1a0d1e1cc5818b05ba7ae072ad1befd9acf2f79e54c5ab43958",
             "file": "vencord-stickerpaste.34ce7ad7d76aa1a0d1e1cc5818b05ba7ae072ad1befd9acf2f79e54c5ab43958.json",
             "bytes": 9187
@@ -4589,6 +4735,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "6d05251867a56380f4c36499d8e2181aa232cf9caf92fcc06e35acedd6fa2702",
             "file": "vencord-streamermodeonstream.6d05251867a56380f4c36499d8e2181aa232cf9caf92fcc06e35acedd6fa2702.json",
             "bytes": 10034
@@ -4619,6 +4766,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "3e31bb8ff0476f1b204952720c11b91f111843db51b4a9ec070be04f7fbee300",
             "file": "vencord-superreactiontweaks.3e31bb8ff0476f1b204952720c11b91f111843db51b4a9ec070be04f7fbee300.json",
             "bytes": 11264
@@ -4679,6 +4827,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "aa04361f76efe48d919a2a795cfc128deee54499bb5c55df456c10fea27daad3",
             "file": "vencord-textreplace.aa04361f76efe48d919a2a795cfc128deee54499bb5c55df456c10fea27daad3.json",
             "bytes": 25689
@@ -4709,6 +4858,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "af750964f149c1553ec6c4c7e7c2488231e46815864465c6275f1bbb017d597b",
             "file": "vencord-themeattributes.af750964f149c1553ec6c4c7e7c2488231e46815864465c6275f1bbb017d597b.json",
             "bytes": 11624
@@ -4749,6 +4899,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "6131963128f2c02de97c5a4c2341875749f7774a034eaee91b2360e0361d0bcf",
             "file": "vencord-translate.6131963128f2c02de97c5a4c2341875749f7774a034eaee91b2360e0361d0bcf.json",
             "bytes": 40139
@@ -4786,6 +4937,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "08ca562fbaad74614fdf478bc7e0743638bb4848c2f654e12998459a201ce66a",
             "file": "vencord-typingindicator.08ca562fbaad74614fdf478bc7e0743638bb4848c2f654e12998459a201ce66a.json",
             "bytes": 20084
@@ -4816,6 +4968,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "4f5846e56082b029e2bc4fdd5150c0550843bf7bb16785e9b1c321eaaec97b8a",
             "file": "vencord-typingtweaks.4f5846e56082b029e2bc4fdd5150c0550843bf7bb16785e9b1c321eaaec97b8a.json",
             "bytes": 17353
@@ -4844,6 +4997,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "a6a8d17bdd9d79180f23bcf93aaae9d6b5ced927b9ad465e24a495dd89cc82de",
             "file": "vencord-unindent.a6a8d17bdd9d79180f23bcf93aaae9d6b5ced927b9ad465e24a495dd89cc82de.json",
             "bytes": 9608
@@ -4870,6 +5024,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "4e8130bd1829edda9b92cc8d302516d4c91d86ca97f4c2e01973d89d4c2aedec",
             "file": "vencord-unlockedavatarzoom.4e8130bd1829edda9b92cc8d302516d4c91d86ca97f4c2e01973d89d4c2aedec.json",
             "bytes": 10177
@@ -4902,6 +5057,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": true,
             "sha256": "e5d4349bb66c22c4da7b8e993338b54022cb6d5302889a7f06d83bf4e1816d0a",
             "file": "vencord-unsuppressembeds.e5d4349bb66c22c4da7b8e993338b54022cb6d5302889a7f06d83bf4e1816d0a.json",
             "bytes": 12801
@@ -4940,6 +5096,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "e9f935d9bce0df1a8547c3afb5f78d92889376beb6da0ac28d50b1327e40ca73",
             "file": "vencord-usermessagespronouns.e9f935d9bce0df1a8547c3afb5f78d92889376beb6da0ac28d50b1327e40ca73.json",
             "bytes": 18877
@@ -4997,6 +5154,7 @@
             "available": false,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "e7d7cd944d44a431fda7641e0bd1b93e3ecbae4ead550fc36ee3f36e4b1921a0",
             "file": "vencord-uservoiceshow.e7d7cd944d44a431fda7641e0bd1b93e3ecbae4ead550fc36ee3f36e4b1921a0.json",
             "bytes": 20950,
@@ -5036,6 +5194,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "08354de9ef81e6f3c054934d55683ed3bc64da40faff7894263868957f546655",
             "file": "vencord-usrbg.08354de9ef81e6f3c054934d55683ed3bc64da40faff7894263868957f546655.json",
             "bytes": 18671
@@ -5062,6 +5221,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "3c325e620a02f62286843f7cc59bbd54b538bd9733ac7b5a35d91e0ab6c27532",
             "file": "vencord-validreply.3c325e620a02f62286843f7cc59bbd54b538bd9733ac7b5a35d91e0ab6c27532.json",
             "bytes": 10752
@@ -5092,6 +5252,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "5054a6d76dd4fb0418a088ba842fcb48577bee48ff4e4ab23a578ccfddca1184",
             "file": "vencord-validuser.5054a6d76dd4fb0418a088ba842fcb48577bee48ff4e4ab23a578ccfddca1184.json",
             "bytes": 18094
@@ -5118,6 +5279,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "36164754e6fc801df758684521935149cfa334d2286dfbf61ecda8f714483885",
             "file": "vencord-vcnarrator.36164754e6fc801df758684521935149cfa334d2286dfbf61ecda8f714483885.json",
             "bytes": 24479
@@ -5188,6 +5350,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "be2770a2f8b7a34a1fb0c3b8371f9e97a8c7f86f641919b71fb3bea6320bb1aa",
             "file": "vencord-viewicons.be2770a2f8b7a34a1fb0c3b8371f9e97a8c7f86f641919b71fb3bea6320bb1aa.json",
             "bytes": 15489
@@ -5229,6 +5392,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": true,
             "sha256": "c36e0aa2df3d757da1655af14fb3b894412ee9b162dd0d14aaa59a4c0a8205f8",
             "file": "vencord-viewraw.c36e0aa2df3d757da1655af14fb3b894412ee9b162dd0d14aaa59a4c0a8205f8.json",
             "bytes": 22600
@@ -5258,6 +5422,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "292f41a6015ad206b26566c103e813e08cab5944f59ca51d0c7a60f87eff878e",
             "file": "vencord-voicechatdoubleclick.292f41a6015ad206b26566c103e813e08cab5944f59ca51d0c7a60f87eff878e.json",
             "bytes": 10574
@@ -5284,6 +5449,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "f90c9459dd772aa04edf57de65823a915165f1f66837d9443bf240af986da048",
             "file": "vencord-voicedownload.f90c9459dd772aa04edf57de65823a915165f1f66837d9443bf240af986da048.json",
             "bytes": 9880
@@ -5319,6 +5485,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "21e6e589b1a40ea2bfedf6a7dd162e56faba4f2b5fbb930c54517f16998d7c4b",
             "file": "vencord-voicemessages.21e6e589b1a40ea2bfedf6a7dd162e56faba4f2b5fbb930c54517f16998d7c4b.json",
             "bytes": 29040
@@ -5349,6 +5516,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "da3112c88da68f421e981f31f5b6f0b77302fd6b21810377027a07374a116f42",
             "file": "vencord-volumebooster.da3112c88da68f421e981f31f5b6f0b77302fd6b21810377027a07374a116f42.json",
             "bytes": 11726
@@ -5534,6 +5702,7 @@
             "available": true,
             "hasNative": false,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "0dee07d680f030236c05f7438b535942620e5703654ea870f57c132b4371e58c",
             "file": "vencord-whoreacted.0dee07d680f030236c05f7438b535942620e5703654ea870f57c132b4371e58c.json",
             "bytes": 16650
@@ -5559,6 +5728,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": true,
+            "hotReload": false,
             "sha256": "b52bec58ce5534b8bbe2e15acd6a935664db4c0ff80d70e9914f94613b54e634",
             "file": "vencord-xsoverlay.b52bec58ce5534b8bbe2e15acd6a935664db4c0ff80d70e9914f94613b54e634.json",
             "bytes": 23027
@@ -5589,6 +5759,7 @@
             "available": true,
             "hasNative": true,
             "hasSettings": false,
+            "hotReload": false,
             "sha256": "990e27a3724b16fdd42cfa4731c799cf0023c9b65e7269024b743b51c96623ce",
             "file": "vencord-youtubeadblock.990e27a3724b16fdd42cfa4731c799cf0023c9b65e7269024b743b51c96623ce.json",
             "bytes": 13769

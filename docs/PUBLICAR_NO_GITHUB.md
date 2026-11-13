@@ -4,7 +4,7 @@ Esta pasta está preparada para ser a raiz de um repositório. Não envie apenas
 
 ## Pelo GitHub Desktop
 
-1. Extraia `Deskcord-GitHub-0.5.0.zip` e abra a pasta extraída. Ela deve conter `README.md`, `src`, `docs` e `plugin-packages` no mesmo nível.
+1. Extraia `Deskcord-GitHub-0.6.0.zip` e abra a pasta extraída. Ela deve conter `README.md`, `src`, `docs` e `plugin-packages` no mesmo nível.
 2. No GitHub Desktop, use **File → Add local repository** e selecione essa pasta. Se ela ainda não for um repositório, use a opção de criá-lo nesse local.
 3. Confira os arquivos e faça o commit inicial, se necessário.
 4. Use **Publish repository**, escolha um nome como `Deskcord` e deixe o repositório **público**, sem marcar a opção de manter privado.
@@ -19,7 +19,7 @@ Crie um repositório público vazio no GitHub. Dentro da pasta preparada, execut
 ```sh
 git init -b main
 git add .
-git commit -m "Publicar Deskcord 0.5.0 e pacotes de plugins"
+git commit -m "Publicar Deskcord 0.6.0 e pacotes de plugins"
 git remote add origin https://github.com/trwsty/deskcord.git
 git push -u origin main
 ```
@@ -37,7 +37,7 @@ Não coloque token ou senha na URL. Use a autenticação normal do Git/GitHub De
 - Documentação em português, licenças e atribuições.
 - Verificador local de tamanho, SHA-256 e correspondência com o catálogo.
 
-O instalador EXE não foi colocado nesta pasta. Para distribuí-lo, adicione `Deskcord-Setup-0.5.0.exe` e o ZIP de código-fonte correspondente a um GitHub Release do mesmo repositório. O arquivo da versão 0.5.0 está na pasta `release` do projeto original. Não use Git LFS para os pacotes JSON: o cliente precisa dos bytes reais, não de arquivos apontadores.
+O instalador EXE não foi colocado nesta pasta. Para distribuí-lo, adicione `Deskcord-Setup-0.6.0.exe` e o ZIP de código-fonte correspondente a um GitHub Release do mesmo repositório. O arquivo da versão 0.6.0 está na pasta `release` do projeto original. Não use Git LFS para os pacotes JSON: o cliente precisa dos bytes reais, não de arquivos apontadores.
 
 ## Depois do upload
 

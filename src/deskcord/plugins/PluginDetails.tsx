@@ -20,7 +20,7 @@ function PluginOptions({ plugin }: { plugin: CatalogPlugin; }) {
     const options = optionsFor(plugin.name);
     const [error, setError] = useState("");
     const [restart, setRestart] = useState(false);
-    if (!options) return <p className="dc-muted">Instale o plugin e reinicie o Discord para acessar as opções. Plugins sem opções configuráveis mostram apenas informações.</p>;
+    if (!options) return <p className="dc-muted">Ative o plugin para acessar as opções. Se houver aviso de reinício, reinicie o Discord. Plugins sem opções configuráveis mostram apenas informações.</p>;
     function save(key: string, definition: PluginSettingDef, value: unknown) {
         try {
             if ("isValid" in definition && definition.isValid) {

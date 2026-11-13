@@ -47,6 +47,17 @@ export function status(name: string) {
     const id = pluginCatalog.plugins.find(plugin => plugin.name === name)?.id;
     return id && pluginState.loadedAtStartup.includes(id) ? "active" : "not-loaded";
 }
+export function needsRestart(state: PluginState) {
+    return state.enabled.some(id => !pluginState.loadedAtStartup.includes(id)) || pluginState.loadedAtStartup.some(id => !state.enabled.includes(id));
+}
+export async function applyState(before: PluginState, next: PluginState) {
+    for (const plugin of pluginCatalog.plugins) {
+        if (before.enabled.includes(plugin.id) && !next.enabled.includes(plugin.id) && plugin.hotReload)
+            pluginState.loadedAtStartup = pluginState.loadedAtStartup.filter(id => id !== plugin.id);
+        if (!before.enabled.includes(plugin.id) && next.enabled.includes(plugin.id) && plugin.hotReload && plugin.dependencies.every(id => pluginState.loadedAtStartup.includes(id)))
+            pluginState.loadedAtStartup = [...new Set([...pluginState.loadedAtStartup, plugin.id])];
+    }
+}
 export function relaunch() { }
 export function isSettingHidden(options: any, definition: any) { return typeof definition.hidden === "function" ? definition.hidden.call(options) : Boolean(definition.hidden); }
 export function isSettingDisabled(options: any, definition: any) { return typeof definition.disabled === "function" ? definition.disabled.call(options) : Boolean(definition.disabled); }
@@ -80,7 +91,12 @@ Object.assign(window, {
             pluginState.enabled = [...new Set([...pluginState.enabled, ...ids])];
             return snapshot();
         },
-        setEnabled: async (id: string, enabled: boolean) => { pluginState.enabled = enabled ? [...new Set([...pluginState.enabled, id])] : pluginState.enabled.filter(value => value !== id); return snapshot(); },
+        setEnabled: async (id: string, enabled: boolean) => {
+            pluginState.enabled = enabled ? [...new Set([...pluginState.enabled, id])] : pluginState.enabled.filter(value => value !== id);
+            if (!enabled) pluginState.installed = pluginState.installed.filter(value => value !== id);
+            return snapshot();
+        },
+        load: async () => { },
         remove: async (id: string) => { pluginState.installed = pluginState.installed.filter(value => value !== id); pluginState.enabled = pluginState.enabled.filter(value => value !== id); return snapshot(); }
     }, themes: {
         getThemesList: async () => { if (failList) throw new Error("Fixture: unreadable folder"); return themes.map(({ css, ...info }) => info); },
